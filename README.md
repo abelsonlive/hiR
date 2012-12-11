@@ -1,8 +1,9 @@
 ### r tools by @hinstitute ###
 
-![Alt text]("hidatalab.png")
+![Alt image](hidatalab.png)
 
 Install:	
+
 	library("devtools")
 	install_github("hiR", "hinstitute")
 	library("hiR")
