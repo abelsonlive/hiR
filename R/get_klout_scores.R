@@ -54,13 +54,16 @@ get_klout_scores <- function(twitter_handles,
     ids <- laply(twitter_handles, getID, .progress='text')
 
     # announce errors
-    warning(paste("No Klout Scores for:", twitter_handles[is.na(ids)]))
-
-    # partition output by error status
     exists <- !is.na(ids)
-    ids <- ids[exists]
-    twitter_handles_TRUE <- twitter_handles[exists]
-    twitter_handles_FALSE <- twitter_handles[!exists]
+    if(length(exists) < length(twitter_handles)) {
+        warning(paste("No Klout Scores for:", twitter_handles[is.na(ids)]))
+
+        # partition output by error status
+        exists <- !is.na(ids)
+        ids <- ids[exists]
+        twitter_handles_TRUE <- twitter_handles[exists]
+        twitter_handles_FALSE <- twitter_handles[!exists]
+    }
 
     # step two:
     getScore <- function(id) {
