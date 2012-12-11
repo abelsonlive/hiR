@@ -5,7 +5,7 @@
 If you'd like to add a function to this or any R package,
 just follow these 10 simple steps:
 
-_OPTIONAL: If you want to create a new package from scratch, start here:_
+OPTIONAL: If you want to create a new package from scratch, start here:
 
     #R
     p <- "rpckg"
@@ -100,7 +100,7 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
     #!/bin/bash
     R CMD check rpckg
     ```
-_OPTIONAL: build the package and push to cran_
+OPTIONAL: build the package and push to cran
 
     #!/bin/bash
     R CMD build rpckg
