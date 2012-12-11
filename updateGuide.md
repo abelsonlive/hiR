@@ -7,14 +7,15 @@ just follow these 10 simple steps:
 
 _OPTIONAL: If you want to create a new package from scratch, start here:_
 
+    #R
     p <- "rpckg"
     library("devtools")
     create(p)
 
-1. Carefully format your functions acoording to this template ([more info](https://github.com/hadley/devtools/wiki/docs-function)):
+1. Carefully format your functions acoording to this template: (_[more info](https://github.com/hadley/devtools/wiki/docs-function)_)
 
     ```
-    #' A short description of the function
+    #' A short description of the R function
     #'
     #' A more detailed description of the function
     #'
@@ -42,19 +43,22 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
 3. Run the following commands in the pacakge's parent directory to build your ``NAMESPACE``, ``DESCRIPTION``, and man files.
 
     ```
+    #R
     library("roxygen2")
     roxygenise(p)
     ```
 
-4. Open the ``DESCRIPTION`` file and make sure it follows this template. Be careful to include all dependencies.
+4. Open the ``DESCRIPTION`` file and make sure it follows this template;
+   Be careful to include all dependencies fittingly under ``Depends:``.
 
     ```
+    #DESCRIPTION
     Package: rpckg
     Title: A package that does someting in R
     Description: Explanation of what the package does broadly
     Version: 0.1
     Authors: name1 <name1@domain.come>, name2 <name2@domain.come>
-    Maintainer: name3 <name3@domain.come>
+    Maintainers: name1 <name1@domain.come>, name3 <name3@domain.come>
     License: MIT
     Depends:
         R (>= 2.15.1)
@@ -68,18 +72,25 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
     ```
 
 5. Make sure the functions in your ``NAMESAKE`` file matche the functions under ``Collate:`` within your ``DESCRPTION`` file, e.g:
+
     ```
+    #NAMESAKE
     export(add.R)
     ```
-6. Navigate to the pacakge's parent directory and run this in the command line. Make note of any error messages.
+
+6. Navigate to ``rpkgs``'s parent directory and run this in the command line. Make note of any error messages.
+
     ```
-    $R CMD check rpckg
+    #!/bin/bash
+    R CMD check rpckg
     ```
+
 7. OPTIONAL: now build the package and push to cran
 
     ```
-    $R CMD build rpckg
-    $ftp -u ftp://cran.r-projects.org/incoming/ rpckg_0.1.targz
+    #!/bin/bash
+    R CMD build rpckg
+    ftp -u ftp://cran.r-projects.org/incoming/ rpckg_0.1.targz
     ```
 
 8. OR: locate the ``rpckg.Rcheck`` folder in the package's parent directory,
@@ -89,10 +100,11 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
 9. Now push these updates to git, e.g:
 
     ```
-    $cd rpckg
-    $cd git add .
-    $git commit -m "my first commit"
-    $git push
+    #!/bin/bash
+    cd rpckg
+    cd git add .
+    git commit -m "my first commit"
+    git push
     ```
 
 10. Finally, reinstall the package using devtools::install_github:
