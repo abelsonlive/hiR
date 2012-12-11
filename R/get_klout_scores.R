@@ -55,7 +55,8 @@ get_klout_scores <- function(twitter_handles,
 
     # announce errors
     exists <- !is.na(ids)
-    if(length(exists) < length(twitter_handles)) {
+    twitter_handles_TRUE <- twitter_handles[exists]
+    if(length(witter_handles_TRUE) < length(twitter_handles)) {
         warning(paste("No Klout Scores for:", twitter_handles[is.na(ids)]))
 
         # partition output by error status
