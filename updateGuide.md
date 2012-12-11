@@ -41,7 +41,7 @@ just follow these simple steps:
 
 3. Save your functions in the "R" subdirectory with a ".R" file extension, e.g. "add.R"
 
-4. Run the following command the pacakge's parent directory to build your NAMESPACE, DESCRIPTION, and manual files.
+4. Run the following commands in the pacakge's parent directory to build your NAMESPACE, DESCRIPTION, and manual files.
 
     ```
     library("roxygen2")
@@ -84,7 +84,7 @@ just follow these simple steps:
     $RCMD build hiR
     $ftp ftp://cran.r-projects.org/incoming/ hiR_0.1.targz
     ```
-8. OR: locate the "hiR.Rcheck" folder in the package's parent directory, open this folder and move hiR-manual.pdf and hiR-ex.pdf into the "inst" folder, and overwite if they exist already.
+8. OR: locate the "hiR.Rcheck" folder in the package's parent directory, open this folder, move hiR-manual.pdf and hiR-ex.pdf into the "inst" folder, and overwite if they exist there already.
 
 9. Now push these updates to git, e.g.
 
