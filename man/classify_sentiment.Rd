@@ -50,7 +50,7 @@ documents <- c("I am very happy, excited, and optimistic.",
                "With nightfall approaching, Los Angeles authorities are urging residents to keep their
                outdoor lights on as police and fire officials try to catch the person or people responsible
                for nearly 40 arson fires in the last three days.")
-library(hidatalabs)
+library("hiR")
 classify_sentiment(documents,algorithm="bayes",verbose=TRUE)
 }
 

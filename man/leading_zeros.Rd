@@ -15,7 +15,7 @@
 }
 \examples{
 ids <- c("1", "12470192401" , "30479103", "42u1p9241", "532", "3153")
-library(hidatalabs)
+library("hiR")
 leading_zeros(id = ids)
 }
 

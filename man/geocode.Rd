@@ -25,7 +25,7 @@ uid_location <- data.frame(uid, location)
 
 # Run geocoding funciton
 library("plyr")
-library(hidatalabs)
+library("hiR")
 geocoded_data <- ddply(uid_location, .(uid), geocode)
 
 # Plot results

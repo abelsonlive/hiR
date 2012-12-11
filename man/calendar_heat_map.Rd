@@ -30,7 +30,7 @@
 \examples{
 date <- seq(from=as.Date("2010-01-01"), to=as.Date("2012-12-31"), by='day')
 value <- rnorm(length(date), mean = 10, sd=1)
-library(hidatalabs)
+library("hiR")
 calendar_heat_map(dates=date, values=value)
 }
 
