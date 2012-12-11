@@ -3,10 +3,9 @@ Title: Harmony Institute's toolkit for R
 Description: Various helper tools for R maintained by HI data lab, since
     December 2012
 Version: 0.1
-Authors: Burton Dewilde<burton@harmony-institute.org>,
-    Sarah Tan <sarahtan@harmony-institute.org>,
-    Brian Abelson <brian@harmony-institute.org> (2011-2012)
-Maintainer: Burton Dewilde<burton@harmony-institute.org>
+  Authors@R: person("Brian", "Abelson", role = c("aut", "cre"))
+  Authors@R: person("Burton", "Dewilde" role = c("aut, "cres))
+  Authors@R: person("Sarah", Tan" role = c("aut"))
 License: MIT
 Depends:
     R (>= 2.15.1),
