@@ -3,8 +3,8 @@
 #' This function is a shell for applying scraping
 #' functions aross a vector of urls while handling errors
 #'
-#' @param ids character vector of ids/urls to feed to a scraping function
-#' @param scraping function
+#' @param ids A character vector of ids/urls to feed to a scraping function
+#' @param scrape The scraping function to apply across the ids
 #'
 #' @export
 #'

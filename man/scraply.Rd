@@ -5,10 +5,11 @@
   scraply(ids, scrape = NULL)
 }
 \arguments{
-  \item{ids}{character vector of ids/urls to feed to a
+  \item{ids}{A character vector of ids/urls to feed to a
   scraping function}
 
-  \item{scraping}{function}
+  \item{scrape}{The scraping function to apply across the
+  ids}
 }
 \value{
   a data.frame created by scrape
