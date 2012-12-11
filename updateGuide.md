@@ -93,7 +93,7 @@ just follow these simple steps:
     ```
     $cd hiR
     $cd git add .
-    $git commit -m"my commit"
+    $git commit -m "my commit"
     $git push
     ```
 
