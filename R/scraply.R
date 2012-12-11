@@ -12,25 +12,22 @@
 #' a data.frame created by scrape
 
 scraply <- function(ids, scrape=scrape) {
+    #libraries
+    if(!require("plyr")) {
+        install.packages("plyr")
+        library("plyr")
+    }
 
-    # match function
+    # apply function wrapper
     apply_fx <- function(x, fx) {
             FUN <- match.fun(fx)
             FUN(x)
     }
 
-    if(!require("plyr")) {
-        install.packages("plyr")
-        library("plyr")
-    }
-    if(typeof(scrape)!="closure") {
-        stop("scrape must be a function for scraping associated ids/urls")
-    }
-
     print("scraping pages...")
     ids <- as.character(ids)
     output <- llply(ids, function(id) {
-                                    out <- try((apply_fx(id, scrape), TRUE)
+                                    out <- try(apply_fx(id, scrape), TRUE)
                                     if (class(out)=='try-error') {
                                         warning(paste("error scraping", id))
                                         out <- NULL
