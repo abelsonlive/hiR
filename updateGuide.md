@@ -84,7 +84,7 @@ OPTIONAL: If you want to create a new package from scratch, start here:
         x + y
     }
     )
-    write(add, "R/add.R")
+    write(add, paste0(p, "/R/add.R"))
     ```
 
 4. Run the following commands in the pacakge's parent directory to build your ``NAMESPACE`` and ``DESCRIPTION`` files, and your ``/man`` directory of ``.Rd`` files.
