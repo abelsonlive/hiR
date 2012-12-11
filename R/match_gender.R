@@ -1,13 +1,14 @@
-#' Retrieve gender given a vector of first names \n Warning: only about 60% accurate with current dataset.
+#' Retrieve gender given a vector of first names
+#'
+#' only about 60% accurate with current names dataset.
 #'
 #' @param names A character vector of names
 #' @param full Logical; should the function try to extract the first name?
 #'            WARNING: names like "sarah ann" will turn into "sarah"
-#'
 #' @export
 #'
 #' @return
-#' about 60-70 percent of first names from twitter accurately classified
+#' About 60-70 percent of first names from twitter accurately classified by gender
 #'
 #' @examples
 #' names <- c("cindy", "sally", "bob", "joe")

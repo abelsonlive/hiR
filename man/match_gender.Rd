@@ -1,6 +1,6 @@
 \name{match_gender}
 \alias{match_gender}
-\title{Retrieve gender given a vector of first names \n Warning: only about 60% accurate with current dataset.}
+\title{Retrieve gender given a vector of first names}
 \usage{
   match_gender(names, full = FALSE)
 }
@@ -12,12 +12,11 @@
   turn into "sarah"}
 }
 \value{
-  about 60-70 percent of first names from twitter
-  accurately classified
+  About 60-70 percent of first names from twitter
+  accurately classified by gender
 }
 \description{
-  Retrieve gender given a vector of first names \n Warning:
-  only about 60% accurate with current dataset.
+  only about 60% accurate with current names dataset.
 }
 \examples{
 names <- c("cindy", "sally", "bob", "joe")
