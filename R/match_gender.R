@@ -23,7 +23,7 @@ match_gender <- function(names,
         library("stringr")
     }
     # read in names database
-    names_db <- read.csv("http://dl.dropbox.com/u/6535582/HI_Files/gender_match/names.csv", stringsAsFactors=F)
+    names_db <- read.csv("http://dl.dropbox.com/u/6535582/HI_Files/hiR/gender_match/names.csv", stringsAsFactors=F)
 
     # clean up input names
     names <- str_trim(as.character(names))
