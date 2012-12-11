@@ -84,7 +84,7 @@ just follow these simple steps:
     $RCMD build hiR
     $ftp ftp://cran.r-projects.org/incoming/ hiR_0.1.targz
     ```
-8. OR: locate the "hiR.Rcheck" folder in the package's parent directory. Open this folder and move hiR-manual.pdf and hiR-ex.pdf into the "inst" folder. Overwite if they exist already.
+8. OR: locate the "hiR.Rcheck" folder in the package's parent directory, open this folder and move hiR-manual.pdf and hiR-ex.pdf into the "inst" folder, and overwite if they exist already.
 
 9. Now push these updates to git, e.g.
 
