@@ -2,7 +2,7 @@
 # [Harmony Institute](http://www.harmony-institute.org/)'s toolkit for R #
 ###_A suite of tools for R maintained by [@hinstitute](http://www.twitter.com/hinstitute)_###
 [download the documentation](http://github.com/hinstitute/hiR/blob/master/hiR-manual.pdf?raw=true)
-How to Install:
+####How to Install:####
 
 	library("devtools")
 	install_github("hiR", "hinstitute")
