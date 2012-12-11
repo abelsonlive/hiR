@@ -88,7 +88,7 @@ just follow these simple steps:
     ```
 8. OR: locate the "hiR.Rcheck" folder in the package's parent directory, open this folder, move hiR-manual.pdf and hiR-ex.pdf into the "inst" folder, and overwite if they exist there already.
 
-9. Now push these updates to git, e.g.
+9. Now push these updates to git, e.g:
 
     ```
     $cd hiR
@@ -106,6 +106,5 @@ just follow these simple steps:
     help(package="hiR")
     ```
 
-_WARNING: if you install the package twice in the same R Session the manual will break._
-_Simply restart R to fix this issue_
+_WARNING: if you install the package twice in the same R Session the manual will break. Simply restart R to fix this issue_
 
