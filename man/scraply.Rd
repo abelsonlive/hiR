@@ -2,7 +2,7 @@
 \alias{scraply}
 \title{Scrape urls with llply, handling errors}
 \usage{
-  scraply(ids, scrape = NULL)
+  scraply(ids, scrape)
 }
 \arguments{
   \item{ids}{A character vector of ids/urls to feed to a
