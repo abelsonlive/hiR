@@ -12,14 +12,14 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
     library("devtools")
     create(p)
 
-1. Clone the repository from github
+1. Or just, clone a repository from github
 
     ```
     #!/bin/bash
     git clone git://github.com/hinstitute/rpckg.git
     ```
 
-    Alternatively, if the package exists already on github, e.g. ``hiR``, install directly with ``devtools::install_github``
+    Alternatively, install directly with ``devtools::install_github``
 
     ```
     #R
