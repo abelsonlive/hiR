@@ -23,7 +23,7 @@
 #' @examples
 #' tracts <- paste("ct", rep(1:100), sep="")
 #' race <- c("black", "white", "hispanic")
-#' library(hidatalabs)
+#' library("hiR")
 #' gen_var_names(roots=tracts, vars=race)
 gen_var_names <- function(roots, vars, delim="_"){
     n.roots <- length(roots)

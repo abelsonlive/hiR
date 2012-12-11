@@ -8,8 +8,9 @@
 #' documents <- c("running runner run", "jumping jump jumped")
 #' library(tm)
 #' corpus <- Corpus(VectorSource(documents))
-#' library(hidatalabs)
-#' tm_map(corpus, word_stemmer)
+#' library("hiR")
+#' as.character(tm_map(corpus, word_stemmer))
+
 word_stemmer <- function(document) {
     if(!require("stringr")){
         install.packages("stringr")

@@ -18,9 +18,10 @@
 #'
 #' @examples
 #' var <- rnorm(100)
-#' library("hidatalabs")
+#' library("hiR")
 #' var_cols <- assign_colors(var)
 #' plot(var_cols$var, pch=20, col=var_cols$col)
+
 assign_colors <- function(var,
                          n = 9,
                          style = "jenks",

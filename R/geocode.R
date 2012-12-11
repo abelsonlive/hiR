@@ -17,7 +17,7 @@
 #'
 #' # Run geocoding funciton
 #' library("plyr")
-#' library(hidatalabs)
+#' library("hiR")
 #' geocoded_data <- ddply(uid_location, .(uid), geocode)
 #'
 #' # Plot results
@@ -28,6 +28,7 @@
 #' points(geocoded_data$lng, geocoded_data$lat, pch=20, cex=2, col="steelblue")
 #' text(geocoded_data$lng-0.5, geocoded_data$lat+0.3, labels=geocoded_data$location, cex=1, col="darkred")
 #' title("Major Cities on the Eastern Seaboard")
+
 geocode <- function(uid_location) {
 
     # libraries

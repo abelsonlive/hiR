@@ -31,7 +31,7 @@
 #'
 #' y <- c(1, 2, 3, 1, 0, 1, 1, 0)
 #'
-#' library(hidatalabs)
+#' library("hiR")
 #' res <- regress_text(text, y)
 #'
 #' print(res[[1]])
