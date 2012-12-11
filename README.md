@@ -8,4 +8,4 @@ How to Install:
 	library("hiR")
 	help(package="hiR")
 
-[Manual](http://github.com/hinstitute/hiR/blob/master/hiR-manual.pdf?raw=true)
+[download the documentation](http://github.com/hinstitute/hiR/blob/master/hiR-manual.pdf?raw=true)
