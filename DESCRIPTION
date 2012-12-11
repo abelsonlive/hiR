@@ -28,15 +28,15 @@ Depends:
     tools
 LazyLoad: yes
 Collate:
-    'assign_colors.R'
-    'calendar_heat_map.R'
-    'cbind_fill.R'
-    'classify_sentiment.R'
-    'gen_var_names.R'
-    'geocode.R'
-    'get_klout_scores.R'
-    'lda.R'
-    'leading_zeros.R'
-    'match_gender.R'
-    'regress_text.R'
+    'assign_colors.R',
+    'calendar_heat_map.R',
+    'cbind_fill.R',
+    'classify_sentiment.R',
+    'gen_var_names.R',
+    'geocode.R',
+    'get_klout_scores.R',
+    'lda.R',
+    'leading_zeros.R',
+    'match_gender.R',
+    'regress_text.R',
     'word_stemmer.R'
