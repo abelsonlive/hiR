@@ -78,20 +78,17 @@ just follow these simple steps:
     $R CMD check hiR
     ```
 
-_this will run the code/examples, check for errors, and generate a manual; it takes awhile_
-
 7. OPTIONAL: build the package and push to cran
 
     ```
     $RCMD build hiR
     $ftp ftp://cran.r-projects.org/incoming/ hiR_0.1.targz
     ```
-
-9. OR: locate the "hiR.Rcheck" folder in the package's parent directory.
+8. OR: locate the "hiR.Rcheck" folder in the package's parent directory.
 * Open this folder and move hiR-manual.pdf and hiR-ex.pdf into the "inst" folder.
 * Overwite if they exist already.
 
-10. Now push these updates to git, e.g.
+9. Now push these updates to git, e.g.
 
     ```
     $cd hiR
@@ -100,7 +97,7 @@ _this will run the code/examples, check for errors, and generate a manual; it ta
     $git push
     ```
 
-11, Now reinstall the package using devtools:
+10. Now reinstall the package using devtools:
 
     ```
     library("devtools")
