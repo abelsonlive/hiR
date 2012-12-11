@@ -1,4 +1,4 @@
-#hiR by ![Alt text](http://dl.dropbox.com/u/6535582/HI_Files/hiR/imgs/hidatalab.jpg)#
+##hiR by ![Alt text](http://dl.dropbox.com/u/6535582/HI_Files/hiR/imgs/hidatalab.jpg)##
 _[Harmony Institute's](http://www.harmony-institute.org/) toolkit for [R](http://www.cran.r-project.org/)_
 ####Install:####
 
