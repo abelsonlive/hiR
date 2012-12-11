@@ -13,7 +13,7 @@ just follow these 10 simple steps:
     create(path_to_package_dir)
     ```
 
-2. Carefully format your functions acoording to this template:
+2. Carefully format your functions acoording to this template ([more info](https://github.com/hadley/devtools/wiki/docs-function)):
 
     ```
     #' A short description of the function
