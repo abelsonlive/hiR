@@ -23,7 +23,7 @@
   Retrieve klout scores for a vector of twitter handles
 }
 \examples{
-# simply get a scouple of klout scores
+# simply get a couple of klout scores
 # you can use my apikey for now but it will eventually break
 library("hiR")
 get_klout_scores(twitter_handles = c("brianabelson", "mhkeller"), api_key="8yng356gnjg37cvn4esbtewy")
