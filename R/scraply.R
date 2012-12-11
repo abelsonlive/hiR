@@ -11,7 +11,7 @@
 #' @return
 #' a data.frame created by scrape
 
-scraply <- function(ids, scrape=NULL) {
+scraply <- function(ids, scrape) {
     if(!require("plyr")) {
         install.packages("plyr")
         library("plyr")
@@ -21,9 +21,9 @@ scraply <- function(ids, scrape=NULL) {
     }
 
     print("scraping pages...")
-    ids <- as.characater(ids)
+    ids <- as.character(ids)
     output <- llply(ids, function(id) {
-                                    out <- try(scrape(id, TRUE))
+                                    out <- try(scrape(id), TRUE)
                                     if (class(out)=='try-error') {
                                         warning(paste("error scraping", id))
                                         out <- NULL
