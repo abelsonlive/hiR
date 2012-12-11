@@ -26,10 +26,10 @@
 #' @param n_assignments The number of assignments to return (returned as ass_topic_a, ass_topic_b, ass_topic_c, etc.)
 #'
 #' @return
-#' A list of length three, including:
-#' [[1]] topic_words: A table of the top n words per topic, n = n_topic_words
-#' [[2]] document_stats: A data.frame of stats about topics in each document
-#' [[3]] topic_words: A table of top topic words in each document
+#' A list of:
+#' $topic_words: A table of the top n words per topic, n = n_topic_words
+#' $document_stats: A data.frame of stats about topics in each document
+#' $topic_words: A table of top topic words in each document
 #'
 #' @export
 #'
@@ -37,27 +37,27 @@
 lda <- function(
 
     # DATA #
-    text, # a character vector of text documents
-    ids = NULL, # a vector of ids (to allow joining results to other variables). default is 1:N
+    text,
+    ids = NULL,
 
     # CLEANING #
-    lower_case = TRUE, # logical; should the function make the text lower case?
-    remove_stop_words = TRUE, # logical; should the function remove stop words? NOTE: this will also make the text lower case
-    stop_words_to_add = NULL, # a character vector of stopwords to add
-    remove_numbers = TRUE, # logical; should the function remove numbers?
-    remove_punctuation = TRUE, # logical; should the function remove punctuation?
-    remove_non_ascii = TRUE, # logical; should the function remove non-ASCII characters?
-    stem_words = FALSE, # logical; should the function stem the words?
-    char_range = c(2,50), # numeric vector of length two with low and high value of characters per word (inclusive!)
-    min_word_count = 5, # number of times a word/feature must occur in a text to be considered
+    lower_case = TRUE,
+    remove_stop_words = TRUE,
+    stop_words_to_add = NULL,
+    remove_numbers = TRUE,
+    remove_punctuation = TRUE,
+    remove_non_ascii = TRUE,
+    stem_words = FALSE,
+    char_range = c(2,50),
+    min_word_count = 5,
 
     # MODEL PARAMETERS #
-    n_topics = 10, # number of topics to fit
-    n_topic_words = 20, # number of top topic words to return
-    n_iter = 1000, # number of iterations
-    burnin = 100, # number of initial iterations to ignore. the function adds burnin to n_iter
-    alpha = 0.1, # the scalar value of the dirichlet hyperparameter for topic proportions
-    eta = 0.1, # the scalar value of the dirichlet hyperparamater for topic multinomials
+    n_topics = 10,
+    n_topic_words = 20,
+    n_iter = 1000,
+    burnin = 100,
+    alpha = 0.1,
+    eta = 0.1,
 
     # OUTPUT #
     n_assignments = 3 # number of assigments to return (returned as ass_topic_a, ass_topic_b, ass_topic_c, etc.)
@@ -156,10 +156,10 @@ lda <- function(
     }
     corpus <- tm_map(corpus, stripWhitespace)
 
-    # filter out words that have characters longer than 255 - these will break the stemming function
+    # filter out "words" that have more than 255
+    # these will break the stemming function
     charFilter <- function(x) {
         words <- str_trim(unlist(strsplit(x, " ")))
-        #ensure all empty words and words with more than 50 characters are removed
         nchars <- laply(words, nchar)
         clean_words <- words[which(nchars <= 255)]
         output <- paste(clean_words, collapse=" ")
@@ -189,7 +189,8 @@ lda <- function(
     charFilter2 <- function(x) {
         words <- str_trim(unlist(strsplit(x, " ")))
         nchars <- laply(words, nchar)
-        clean_words <- words[which(nchars >= char_range[1] & nchars <= char_range[2])]
+        arg <- which(nchars >= char_range[1] & nchars <= char_range[2])
+        clean_words <- words[arg]
         output <- str_trim(paste(clean_words, collapse=" "))
         return(output)
     }
@@ -231,11 +232,15 @@ lda <- function(
 
     # top words by document
     predictions <- t(predictive.distribution(result$document_sums, result$topics, 0.1, 0.1))
-    document_words <- data.frame(top.topic.words(predictions, n_topic_words, by.score = TRUE))
+    document_words <- data.frame(top.topic.words(predictions,
+                                                 n_topic_words,
+                                                 by.score = TRUE))
     names(document_words) <- ids
 
     # top words by topic
-    topic_words <- data.frame(top.topic.words(result$topics, num.words = n_topic_words, by.score = TRUE))
+    topic_words <- data.frame(top.topic.words(result$topics,
+                                              num.words = n_topic_words,
+                                              by.score = TRUE))
     names(topic_words) <- paste0("topic_", 1:K)
 
     # topics by documents stats

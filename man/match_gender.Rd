@@ -12,8 +12,8 @@
   turn into "sarah"}
 }
 \value{
-  about 60-70 percent of firstnames from twitter accurately
-  classified
+  about 60-70 percent of first names from twitter
+  accurately classified
 }
 \description{
   Retrieve gender given a vector of first names \n Warning:

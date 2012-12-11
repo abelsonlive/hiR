@@ -7,7 +7,7 @@
 #' @export
 #'
 #' @return
-#' about 60-70 percent of firstnames from twitter accurately classified
+#' about 60-70 percent of first names from twitter accurately classified
 #'
 #' @examples
 #' names <- c("cindy", "sally", "bob", "joe")
