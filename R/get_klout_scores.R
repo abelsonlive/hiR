@@ -152,7 +152,7 @@ get_klout_scores <- function(twitter_handles,
             if(class(out)=='try-error'){
                 id <- NA
             } else {
-                id <- out
+                id <- str_trim(out)
             }
             return(id)
         }

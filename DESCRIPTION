@@ -1,6 +1,6 @@
 Package: hiR
-Title: HI's toolkit for R
-Description: Various helper tools for R developed at HI data lab, since
+Title: Harmony Institute's toolkit for R
+Description: Various helper tools for R maintained by HI data lab, since
     December 2012
 Version: 0.1
 Author: Brian Abelson <brian@harmony-institute.org>
