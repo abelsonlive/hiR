@@ -8,5 +8,5 @@ How to Install:
 	library("hiR")
 	help(package="hiR")
 
-Manual:	
-![Alt text](http://dl.dropbox.com/u/6535582/HI_Files/hiR/imgs/hiR-manual.pdf)
+[Manual](http://github.com/hinstitute/hiR/blob/master/hiR-manual.pdf?raw=true)
+
