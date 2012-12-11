@@ -107,7 +107,7 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
     git push
     ```
 
-10. Finally, reinstall the package using devtools::install_github:
+10. Finally, (re)install the package using devtools::install_github:
 
     ```
     #R
