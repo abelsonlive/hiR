@@ -16,8 +16,8 @@
   handles that don't have klout scores}
 }
 \value{
-  A list data.frame of twitter handles, klout ids, and
-  klout scores
+  A data.frame of twitter handles, klout ids, and klout
+  scores
 }
 \description{
   Retrieve klout scores for a vector of twitter handles

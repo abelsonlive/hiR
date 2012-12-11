@@ -4,7 +4,7 @@
 #' @param api_key Your api key from http://klout.com/s/developers/
 #' @param na_omit Logical; should the function remove handles that don't have klout scores
 #'
-#' @return A list data.frame of twitter handles, klout ids, and klout scores
+#' @return A data.frame of twitter handles, klout ids, and klout scores
 #'
 #' @export
 #'
