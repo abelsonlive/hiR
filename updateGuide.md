@@ -101,13 +101,15 @@ OPTIONAL: If you want to create a new package from scratch, start here:
     R CMD check rpckg
     ```
 
-OPTIONAL: build the package and push to cran
+    OPTIONAL: build the package and push to cran
 
+    ```
     #!/bin/bash
     R CMD build rpckg
     ftp -u ftp://cran.r-projects.org/incoming/ rpckg_0.1.targz
+    ```
 
-8. Locate the ``rpckg.Rcheck`` folder in the package's parent directory,
+*. Locate the ``rpckg.Rcheck`` folder in the package's parent directory,
    open this folder, move ``rpckg.pdf`` and ``rpckg-ex.pdf`` into ``rpckg`` or ``inst``,
    and overwite if they exist there already.
 
