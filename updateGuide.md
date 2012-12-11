@@ -1,4 +1,4 @@
-##10 STEP GUIDE TO UPDATING THIS (AND ANY OTHER) R PACKAGE##
+##10 STEP GUIDE TO CREATING / UPDATING THIS (AND ANY OTHER) R PACKAGE##
 
 [h/t @ hadley](http://scholarship.rice.edu/bitstream/handle/1911/36084/r-packages.key.pdf?sequence=2)
 
