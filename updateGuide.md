@@ -1,4 +1,4 @@
-##10 STEP GUIDE TO CREATING / UPDATING THIS (AND ANY OTHER) R PACKAGE##
+##10 STEP GUIDE TO CREATING/UPDATING A R PACKAGE##
 
 [h/t @ hadley](http://scholarship.rice.edu/bitstream/handle/1911/36084/r-packages.key.pdf?sequence=2)
 
@@ -110,6 +110,7 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
 10. Finally, reinstall the package using devtools::install_github:
 
     ```
+    #R
     library("devtools")
     install_github("rpckg", "hinstitute")
     library("rpckg")
