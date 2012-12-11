@@ -38,6 +38,12 @@
 var <- rnorm(100)
 library("hiR")
 var_cols <- assign_colors(var)
-plot(var_cols$var, pch=20, col=var_cols$col)
+par(family="HersheySans")
+plot(var_cols$var,
+     pch=20,
+     col=var_cols$col,
+     xlab="index",
+     ylab="value",
+     main="assign_colors example")
 }
 

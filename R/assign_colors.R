@@ -20,7 +20,13 @@
 #' var <- rnorm(100)
 #' library("hiR")
 #' var_cols <- assign_colors(var)
-#' plot(var_cols$var, pch=20, col=var_cols$col)
+#' par(family="HersheySans")
+#' plot(var_cols$var,
+#'      pch=20,
+#'      col=var_cols$col,
+#'      xlab="index",
+#'      ylab="value",
+#'      main="assign_colors example")
 
 assign_colors <- function(var,
                          n = 9,
@@ -72,6 +78,7 @@ assign_colors <- function(var,
                    return(assignment)
                 }
     print("assigning colors...")
+
     # assign colors to breaks
     assignments <- unlist(llply(breaks, assignColor, .progress="text"))
     return(data.frame(var, brk = breaks, col = assignments))
