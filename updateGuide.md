@@ -19,7 +19,7 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
     git clone git://github.com/hinstitute/rpckg.git
     ```
 
-    _alternatively(if exists):_
+    Alternatively, if package exists already on github, e.g. ``hiR``, install directly with ``devtools::install_github``
 
     ```
     #R
@@ -28,7 +28,7 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
     library("rpckg")
     ```
 
-2. Carefully format your new functions acoording to this template: (_[more info](https://github.com/hadley/devtools/wiki/docs-function)_)
+2. Carefully format new functions you want to add acoording to this template: (_[more info](https://github.com/hadley/devtools/wiki/docs-function)_)
 
     ```
     #' A short description of the R function
@@ -55,7 +55,7 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
     }
     ```
 
-3. Save each of your functions in the ``\R`` subdirectory with a ``.R`` file extension, e.g. ``add.R``
+3. Save each of your functions in the ``\R`` subdirectory with a ``.R`` file extension, e.g. ``rpckg/R/add.R``
 4. Run the following commands in the pacakge's parent directory to build your ``NAMESPACE`` and ``DESCRIPTION`` files, and your ``\man`` directory, of ``.Rd`` files.
 
     ```
@@ -101,7 +101,7 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
     R CMD check rpckg
     ```
 
-_OPTIONAL: now build the package and push to cran_
+_OPTIONAL: build the package and push to cran_
 
     ```
     #!/bin/bash
@@ -109,7 +109,7 @@ _OPTIONAL: now build the package and push to cran_
     ftp -u ftp://cran.r-projects.org/incoming/ rpckg_0.1.targz
     ```
 
-8. OR: locate the ``rpckg.Rcheck`` folder in the package's parent directory,
+8. Locate the ``rpckg.Rcheck`` folder in the package's parent directory,
    open this folder, move ``rpckg.pdf`` and ``rpckg-ex.pdf`` into ``rpckg`` or ``inst``,
    and overwite if they exist there already.
 
@@ -123,7 +123,7 @@ _OPTIONAL: now build the package and push to cran_
     git push
     ```
 
-10. Finally, (re)install the package using devtools::install_github:
+10. Finally, (re)install the package using ```devtools::install_github```:
 
     ```
     #R
