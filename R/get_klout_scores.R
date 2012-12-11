@@ -13,7 +13,7 @@
 #' # you can use my apikey for now but it will eventually break
 #' library("hiR")
 #' get_klout_scores(twitter_handles = c("brianabelson", "mhkeller"), api_key="8yng356gnjg37cvn4esbtewy")
-#' # see ex/get_klout_scores_ex.R for a more detailed use case
+#' # see inst/docs/get_klout_scores_ex.R for a more detailed use case
 
 get_klout_scores <- function(twitter_handles,
                              api_key,

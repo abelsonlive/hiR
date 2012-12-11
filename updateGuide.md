@@ -55,7 +55,36 @@ OPTIONAL: If you want to create a new package from scratch, start here:
     }
     ```
 
-3. Save each of your functions in the ``/R`` subdirectory with a ``.R`` file extension, e.g. ``rpckg/R/add.R``
+3. Save each of your functions in the ``R`` subdirectory with a ``.R`` file extension, e.g. ``rpckg/R/add.R``
+
+    ```
+    add <- c(
+    #' A short description of the R function
+    #'
+    #' A more detailed description of the function
+    #'
+    #' @param x A description of parameter x's requirements
+    #' @param y A description of parameter y's requirements
+    #'
+    #' @return
+    #' An explanation of the values the function returns
+    #'
+    #' @export
+    #'
+    #' @example
+    #' # a simple example
+    #' x <- 2
+    #' y <- 2
+    #' library("rpckg")
+    #' add(x, y)
+    # insert your function below
+    add <- function(x, y) {
+        x + y
+    }
+    )
+    write(add, "R/add.R")
+    ```
+
 4. Run the following commands in the pacakge's parent directory to build your ``NAMESPACE`` and ``DESCRIPTION`` files, and your ``/man`` directory of ``.Rd`` files.
 
     ```
@@ -110,7 +139,7 @@ OPTIONAL: If you want to create a new package from scratch, start here:
     ```
 
 8. Locate the ``rpckg.Rcheck`` folder in the package's parent directory,
-   open this folder, move ``rpckg.pdf`` and ``rpckg-ex.pdf`` into ``rpckg`` or ``inst``
+   open this folder, move ``rpckg.pdf`` and ``rpckg-ex.pdf`` into ``rpckg`` or ``/inst/docs``
    and overwite if they already exist.
 
 9. Now push these updates to git, e.g:
