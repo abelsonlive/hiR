@@ -103,11 +103,9 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
 
 _OPTIONAL: build the package and push to cran_
 
-    ```
     #!/bin/bash
     R CMD build rpckg
     ftp -u ftp://cran.r-projects.org/incoming/ rpckg_0.1.targz
-    ```
 
 8. Locate the ``rpckg.Rcheck`` folder in the package's parent directory,
    open this folder, move ``rpckg.pdf`` and ``rpckg-ex.pdf`` into ``rpckg`` or ``inst``,
