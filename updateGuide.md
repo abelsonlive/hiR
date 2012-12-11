@@ -39,8 +39,8 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
     }
     ```
 
-2. Save each of your functions in the "R" subdirectory with a ``.R`` file extension, e.g. ``add.R``
-3. Run the following commands in the pacakge's parent directory to build your ``NAMESPACE``, ``DESCRIPTION``, and man files.
+2. Save each of your functions in the ``\R`` subdirectory with a ``.R`` file extension, e.g. ``add.R``
+3. Run the following commands in the pacakge's parent directory to build your ``NAMESPACE`` and ``DESCRIPTION`` files, and your ``\man`` directory, of ``.Rd`` files.
 
     ```
     #R
