@@ -55,7 +55,9 @@ OPTIONAL: If you want to create a new package from scratch, start here:
     }
     ```
 
-3. Save each of your functions in the ``R`` subdirectory with a ``.R`` file extension, e.g. ``rpckg/R/add.R``
+3. Save each of your functions in the ``R`` subdirectory with a ``.R`` file extension, e.g. to ``rpckg/R/add.R``.
+    another, somewhat absurd method:
+
 
     ```
     add <- c(
