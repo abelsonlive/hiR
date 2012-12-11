@@ -1,6 +1,7 @@
 Package: hiR
 Title: HI's toolkit for R
-Description: Various helper tools for R developed at HI data labs, since December 2012
+Description: Various helper tools for R developed at HI data lab, since
+    December 2012
 Version: 0.1
 Author: Brian Abelson <brian@harmony-institute.org>
 Maintainer: Brian Abelson <brian@harmony-institute.org>
@@ -27,4 +28,15 @@ Depends:
     tools
 LazyLoad: yes
 Collate:
-    'assign_colors.R'    'calendar_heat_map.R'    'cbind_fill.R'    'classify_sentiment.R'    'gen_var_names.R'    'geocode.R'    'get_klout_scores.R'    'lda.R'    'leading_zeros.R'    'match_gender.R'    'regress_text.R'    'word_stemmer.R'
+    'assign_colors.R'
+    'calendar_heat_map.R'
+    'cbind_fill.R'
+    'classify_sentiment.R'
+    'gen_var_names.R'
+    'geocode.R'
+    'get_klout_scores.R'
+    'lda.R'
+    'leading_zeros.R'
+    'match_gender.R'
+    'regress_text.R'
+    'word_stemmer.R'
