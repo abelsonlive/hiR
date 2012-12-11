@@ -9,4 +9,4 @@ How to Install:
 	help(package="hiR")
 
 Manual:	
-![Alt text]("hiR-manual.pdf")
+![Alt text](http://dl.dropbox.com/u/6535582/HI_Files/hiR/imgs/hiR-manual.pdf)
