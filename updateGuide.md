@@ -1,5 +1,7 @@
 ##10 STEP GUIDE TO UPDATING THIS (AND ANY OTHER) R PACKAGE##
 
+[h/t @ hadley](http://scholarship.rice.edu/bitstream/handle/1911/36084/r-packages.key.pdf?sequence=2)
+
 If you'd like to add a function to this R package,
 just follow these simple steps:
 
@@ -18,8 +20,8 @@ just follow these simple steps:
     #'
     #' More detailed description of function
     #'
-    #' @param x Enter a description of this parameter x's requirements
-    #' @param y Enter a description of this parameter y's requirements
+    #' @param x Enter a description of parameter x's requirements
+    #' @param y Enter a description of parameter y's requirements
     #'
     #' @return
     #' An explanation of the values the function returns
@@ -81,8 +83,8 @@ just follow these simple steps:
 7. OPTIONAL: now build the package and push to cran
 
     ```
-    $RCMD build hiR
-    $ftp ftp://cran.r-projects.org/incoming/ hiR_0.1.targz
+    $R CMD build hiR
+    $ftp -u ftp://cran.r-projects.org/incoming/ hiR_0.1.targz
     ```
 8. OR: locate the "hiR.Rcheck" folder in the package's parent directory, open this folder, move hiR-manual.pdf and hiR-ex.pdf into the "inst" folder, and overwite if they exist there already.
 
