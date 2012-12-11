@@ -1,8 +1,6 @@
 \name{scraply}
 \alias{scraply}
-\title{Scrape urls with llply, handling errors
-This function is a shell for applying scraping
-functions aross a vector of urls while handling errors}
+\title{Scrape urls with llply, handling errors}
 \usage{
   scraply(ids, scrape = NULL)
 }
@@ -16,8 +14,7 @@ functions aross a vector of urls while handling errors}
   a data.frame created by scrape
 }
 \description{
-  Scrape urls with llply, handling errors This function is
-  a shell for applying scraping functions aross a vector of
-  urls while handling errors
+  This function is a shell for applying scraping functions
+  aross a vector of urls while handling errors
 }
 
