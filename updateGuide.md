@@ -39,7 +39,7 @@ just follow these simple steps:
     }
     ```
 
-3. Save your functions in the "R" subdirectory with a ".R" file extension, e.g. "add.R"
+3. Save each of your functions in the "R" subdirectory with a ".R" file extension, e.g. "add.R"
 
 4. Run the following commands in the pacakge's parent directory to build your NAMESPACE, DESCRIPTION, and man files.
 
