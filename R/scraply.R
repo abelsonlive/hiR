@@ -23,7 +23,7 @@ scraply <- function(ids, scrape=scrape) {
             FUN <- match.fun(fx)
             FUN(x)
     }
-
+    # scrape urls, handling errors
     print("scraping pages...")
     ids <- as.character(ids)
     output <- llply(ids, function(id) {
