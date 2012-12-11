@@ -5,7 +5,8 @@
 #' @param uid_location A data.frame with one column named "uid" - a vector unique ids
 #'  and another column named "location" - a vector of strings of text to geocode
 #'
-#' @return A data.frame with the uid, location, lat, lng, and type indicating the geocoding precision
+#' @return
+#' A data.frame with the uid, location, lat, lng, and type indicating the geocoding precision
 #'
 #' @export
 #'
@@ -23,7 +24,16 @@
 #' # Plot results
 #' par(family="HersheySans")
 #' library("maps")
-#' regions <- c("new hampshire", "massachusetts", "rhode island", "penn", "connecticut", "washington d.c", "new york", "new jersey", "delaware", "maryland")
+#' regions <- c("new hampshire",
+#'                "massachusetts",
+#'                "rhode island",
+#'                "penn",
+#'                "connecticut",
+#'                "washington d.c",
+#'                "new york",
+#'                "new jersey",
+#'                "delaware",
+#'                "maryland")
 #' map("state", region=regions, col="grey80")
 #' points(geocoded_data$lng, geocoded_data$lat, pch=20, cex=2, col="steelblue")
 #' text(geocoded_data$lng-0.5, geocoded_data$lat+0.3, labels=geocoded_data$location, cex=1, col="darkred")

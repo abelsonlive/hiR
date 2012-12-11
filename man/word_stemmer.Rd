@@ -8,7 +8,7 @@
   \item{document}{A blob of text}
 }
 \description{
-  Stem each feature in a blob of text
+  A vecotrizable wrapper for wordStem in the Rstem package
 }
 \examples{
 documents <- c("running runner run", "jumping jump jumped")

@@ -1,5 +1,7 @@
 #' Stem each feature in a blob of text
 #'
+#' A vecotrizable wrapper for wordStem in the Rstem package
+#'
 #' @param document A blob of text
 #'
 #' @export
