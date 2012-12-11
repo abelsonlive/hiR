@@ -1,4 +1,4 @@
-##GUIDE FOR UPDATING THIS (AND ANY OTHER) R PACKAGE##
+##10 STEP GUIDE TO UPDATING THIS (AND ANY OTHER) R PACKAGE##
 
 If you'd like to add a function to this R package,
 just follow these simple steps:
@@ -11,7 +11,7 @@ just follow these simple steps:
     create(path_to_package_dir)
     ```
 
-2. Write your functions based on this template:
+2. Format your functions based on this template:
 
     ```
     #' Short description of function
@@ -33,7 +33,7 @@ just follow these simple steps:
     #' library("hiR")
     #' add(x, y)
     #'
-    # insert your function here
+    # insert your function below
     add <- function(x, y) {
         x + y
     }
@@ -41,7 +41,7 @@ just follow these simple steps:
 
 3. Save your functions in the "R" subdirectory with a ".R" file extension, e.g. "add.R"
 
-4. Run the following commands in the pacakge's parent directory to build your NAMESPACE, DESCRIPTION, and manual files.
+4. Run the following commands in the pacakge's parent directory to build your NAMESPACE, DESCRIPTION, and man files.
 
     ```
     library("roxygen2")
@@ -104,8 +104,7 @@ just follow these simple steps:
     help(package="hiR")
     ```
 
-###WARNING: if you install the package twice in the same R Session the manual will break.
-###simple restart R to fix this issue
+##WARNING: if you install the package twice in the same R Session the manual will break. Simply restart R to fix this issue##
 
 #fin!
 
