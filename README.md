@@ -1,8 +1,7 @@
+![Alt text](imgs/hidatalab.jpg)
 ### r tools by @hinstitute ###
-
-![Alt image](hidatalab.png)
-
-Install:	
+#_A suite of tools for R developed by Harmony Institute_#
+How to Install:
 
 	library("devtools")
 	install_github("hiR", "hinstitute")
