@@ -57,10 +57,11 @@ OPTIONAL: If you want to create a new package from scratch, start here:
 
 3. Save each of your functions in the ``R`` subdirectory with a ``.R`` file extension, e.g. to ``rpckg/R/add.R``,
 
-    Another, somewhat absurd method:
+    Another, somewhat absurd, but affective method:
 
     ```
-    add <- c('
+    #R
+    add <- c("
     #' A short description of the R function
     #'
     #' A more detailed description of the function
@@ -77,13 +78,13 @@ OPTIONAL: If you want to create a new package from scratch, start here:
     #' # a simple example
     #' x <- 2
     #' y <- 2
-    #' library("rpckg")
+    #' library('rpckg'')
     #' add(x, y)
     # insert your function below
     add <- function(x, y) {
         x + y
     }
-    ')
+    ")
     write(add, paste0(p, "/R/add.R"))
     ```
 
