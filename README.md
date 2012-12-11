@@ -7,5 +7,5 @@ _[Harmony Institute's](http://www.harmony-institute.org/) toolkit for [R](http:/
 	library("hiR")
 	help(package="hiR")
 
-##[documentation](http://github.com/hinstitute/hiR/blob/master/hiR-manual.pdf?raw=true)##
+##[documentation](http://github.com/hinstitute/hiR/blob/master/inst/hiR-manual.pdf?raw=true)##
 _[@hinstitute](http://www.twitter.com/hinstitute)_
