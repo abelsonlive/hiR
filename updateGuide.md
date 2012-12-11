@@ -6,11 +6,11 @@ If you'd like to add a function to this R package,
 just follow these 10 simple steps:
 
 _OPTIONAL: If you want to create a new package from scratch, start here:_
-    ```
+
     p <- "rpckg"
     library("devtools")
     create(p)
-    ```
+
 1. Carefully format your functions acoording to this template ([more info](https://github.com/hadley/devtools/wiki/docs-function)):
 
     ```
