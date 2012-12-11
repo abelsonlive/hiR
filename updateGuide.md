@@ -2,7 +2,7 @@
 
 [h/t @ hadley](http://scholarship.rice.edu/bitstream/handle/1911/36084/r-packages.key.pdf?sequence=2)
 
-If you'd like to add a function to this R package,
+If you'd like to add a function to this or any R package,
 just follow these 10 simple steps:
 
 _OPTIONAL: If you want to create a new package from scratch, start here:_
@@ -12,7 +12,23 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
     library("devtools")
     create(p)
 
-1. Carefully format your functions acoording to this template: (_[more info](https://github.com/hadley/devtools/wiki/docs-function)_)
+1. Clone the repository from github
+
+    ```
+    #!/bin/bash
+    git clone git://github.com/hinstitute/rpckg.git
+    ```
+
+    _alternatively(if exists):_
+
+    ```
+    #R
+    library("devtools")
+    install_github("rpckg", "hinstitute")
+    library("rpckg")
+    ```
+
+2. Carefully format your new functions acoording to this template: (_[more info](https://github.com/hadley/devtools/wiki/docs-function)_)
 
     ```
     #' A short description of the R function
@@ -39,8 +55,8 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
     }
     ```
 
-2. Save each of your functions in the ``\R`` subdirectory with a ``.R`` file extension, e.g. ``add.R``
-3. Run the following commands in the pacakge's parent directory to build your ``NAMESPACE`` and ``DESCRIPTION`` files, and your ``\man`` directory, of ``.Rd`` files.
+3. Save each of your functions in the ``\R`` subdirectory with a ``.R`` file extension, e.g. ``add.R``
+4. Run the following commands in the pacakge's parent directory to build your ``NAMESPACE`` and ``DESCRIPTION`` files, and your ``\man`` directory, of ``.Rd`` files.
 
     ```
     #R
@@ -48,8 +64,8 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
     roxygenise(p)
     ```
 
-4. Open the ``DESCRIPTION`` file and make sure it follows this template;
-   Be careful to include all dependencies fittingly under ``Depends:``.
+5. Open the ``DESCRIPTION`` file and make sure it follows this template;
+   Be careful to include all necessary packages under ``Depends:``.
 
     ```
     #DESCRIPTION
@@ -71,21 +87,21 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
         'add.R'
     ```
 
-5. Make sure the functions in your ``NAMESAKE`` file matche the functions under ``Collate:`` within your ``DESCRPTION`` file, e.g:
+6. Make sure the functions in your ``NAMESAKE`` file match the functions under ``Collate:`` within your ``DESCRPTION`` file, e.g:
 
     ```
     #NAMESAKE
     export(add.R)
     ```
 
-6. Navigate to ``rpkgs``'s parent directory and run this in the command line. Make note of any error messages.
+7. Navigate to ``rpkgs``'s parent directory and run this in the command line. Make note of any error messages.
 
     ```
     #!/bin/bash
     R CMD check rpckg
     ```
 
-7. OPTIONAL: now build the package and push to cran
+_OPTIONAL: now build the package and push to cran_
 
     ```
     #!/bin/bash
