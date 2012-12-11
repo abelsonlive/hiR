@@ -5,15 +5,15 @@
 If you'd like to add a function to this R package,
 just follow these 10 simple steps:
 
-1. OPTIONAL: If you want to create a new package from scratch, start here:
+_OPTIONAL: If you want to create a new package from scratch, start here:_
 
     ```
-    path_to_package_dir <- "myNewPacakage"
+    p <- "rpckg"
     library("devtools")
-    create(path_to_package_dir)
+    create(p)
     ```
 
-2. Carefully format your functions acoording to this template ([more info](https://github.com/hadley/devtools/wiki/docs-function)):
+1. Carefully format your functions acoording to this template ([more info](https://github.com/hadley/devtools/wiki/docs-function)):
 
     ```
     #' A short description of the function
@@ -32,65 +32,62 @@ just follow these 10 simple steps:
     #' # a simple example
     #' x <- 2
     #' y <- 2
-    #' library("hiR")
+    #' library("rpckg")
     #' add(x, y)
-    #'
     # insert your function below
     add <- function(x, y) {
         x + y
     }
     ```
 
-3. Save each of your functions in the "R" subdirectory with a ".R" file extension, e.g. "add.R"
-4. Run the following commands in the pacakge's parent directory to build your NAMESPACE, DESCRIPTION, and man files.
+2. Save each of your functions in the "R" subdirectory with a ``.R`` file extension, e.g. ``add.R``
+3. Run the following commands in the pacakge's parent directory to build your ``NAMESPACE``, ``DESCRIPTION``, and man files.
 
     ```
     library("roxygen2")
-    path_to_package_dir <- "hiR"
-    roxygenise(path_to_package_dir)
+    roxygenise(p)
     ```
 
-5. Open the "DESCRIPTION" file and make sure it follows this template. Be careful to include all dependencies.
+4. Open the ``DESCRIPTION`` file and make sure it follows this template. Be careful to include all dependencies.
 
     ```
-    Package: hiR
-    Title: Harmony Institute's toolkit for R
-    Description: Various helper tools for R maintained by HI data lab, since
-        December 2012
+    Package: rpckg
+    Title: A package that does someting in R
+    Description: Explanation of what the package does broadly
     Version: 0.1
-    Author: Brian Abelson <brian@harmony-institute.org>
-    Maintainer: Brian Abelson <brian@harmony-institute.org>
+    Authors: name1 <name1@domain.come>, name2 <name2@domain.come>
+    Maintainer: name3 <name3@domain.come>
     License: MIT
     Depends:
-        R (>= 2.15.1),
-        package1,
-        package2,
+        R (>= 2.15.1)
+        # your required packages would go here, separated by commas every line
     Suggests:
-        package3,
-        package4,
+        # your suggested packages would go here in the same format. these are packages the library rarely uses or only uses for examples.
     LazyLoad: yes
     Collate:
-        'funcion1.R'
-        'funtion2.R'
         'add.R'
     ```
 
+5. Make sure the functions in your ``NAMESAKE`` file matche the functions under ``Collate:`` within your ``DESCRPTION`` file, e.g:
+    ```
+    export(add.R)
+    ```
 6. Navigate to the pacakge's parent directory and run this in the command line. Make note of any error messages.
     ```
-    $R CMD check hiR
+    $R CMD check rpckg
     ```
 7. OPTIONAL: now build the package and push to cran
 
     ```
-    $R CMD build hiR
-    $ftp -u ftp://cran.r-projects.org/incoming/ hiR_0.1.targz
+    $R CMD build rpckg
+    $ftp -u ftp://cran.r-projects.org/incoming/ rpckg_0.1.targz
     ```
 
 8. OR: locate the "hiR.Rcheck" folder in the package's parent directory, open this folder, move hiR-manual.pdf and hiR-ex.pdf into the "inst" folder, and overwite if they exist there already.
 9. Now push these updates to git, e.g:
 
     ```
-    $cd hiR
+    $cd rpckg
     $cd git add .
     $git commit -m "my commit"
     $git push
@@ -100,9 +97,9 @@ just follow these 10 simple steps:
 
     ```
     library("devtools")
-    install_github("hiR", "hinstitute")
-    library("hiR")
-    help(package="hiR")
+    install_github("rpckg", "hinstitute")
+    library("rpckg")
+    help(package="rpckg")
     ```
 
 _WARNING: if you install the package twice in the same R Session the manual will break. Simply restart R to fix this issue_
