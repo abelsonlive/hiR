@@ -11,6 +11,10 @@
   the first name?  WARNING: names like "sarah ann" will
   turn into "sarah"}
 }
+\value{
+  about 60-70 percent of firstnames from twitter accurately
+  classified
+}
 \description{
   Retrieve gender given a vector of first names \n Warning:
   only about 60% accurate with current dataset.
