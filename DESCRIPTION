@@ -26,6 +26,9 @@ Depends:
     chron,
     grid,
     tools
+Suggests:
+    maps,
+    XML
 LazyLoad: yes
 Collate:
     'assign_colors.R'

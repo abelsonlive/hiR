@@ -1,6 +1,6 @@
 ![Alt text](http://dl.dropbox.com/u/6535582/HI_Files/hiR/imgs/hidatalab.jpg)
-# R tools from [@hinstitute](http://www.twitter.com/hinstitute) #
-###_A suite of tools for R maintained by [Harmony Institute](http://www.harmony-institute.org/)'s data lab_###
+# [Harmony Institute](http://www.harmony-institute.org/)'s toolkit for R #
+###_A suite of tools for R maintained by [@hinstitute](http://www.twitter.com/hinstitute)_###
 How to Install:
 
 	library("devtools")
