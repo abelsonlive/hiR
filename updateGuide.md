@@ -60,7 +60,7 @@ OPTIONAL: If you want to create a new package from scratch, start here:
     Another, somewhat absurd method:
 
     ```
-    add <- c(
+    add <- c('
     #' A short description of the R function
     #'
     #' A more detailed description of the function
@@ -83,7 +83,7 @@ OPTIONAL: If you want to create a new package from scratch, start here:
     add <- function(x, y) {
         x + y
     }
-    )
+    ')
     write(add, paste0(p, "/R/add.R"))
     ```
 
