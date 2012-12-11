@@ -43,3 +43,4 @@ Collate:
     'match_gender.R'
     'regress_text.R'
     'word_stemmer.R'
+    'scraply.R'
