@@ -19,12 +19,13 @@
   automatically generate variable names by some pattern.
   For instance, you might want to do this with population
   counts within 100 census tracts by race IE: tracts <-
-  paste("c", rep(1:100), sep="") race - c("black", "white",
-  "hispanic") In this case you would want to generate 300
-  unique variable names This function will generate these
-  variable names automatically when provided with: 1. the
-  "roots" - in the example above, the unique census tracts
-  2. the "vars" - in the example above, the unique races
+  paste("c", rep(1:100), sep=""); race - c("black",
+  "white", "hispanic"); In this case you would want to
+  generate 300 unique variable names This function will
+  generate these variable names automatically when provided
+  with: 1. the "roots" - in the example above, the unique
+  census tracts 2. the "vars" - in the example above, the
+  unique races
 }
 \examples{
 tracts <- paste("ct", rep(1:100), sep="")

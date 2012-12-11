@@ -5,7 +5,7 @@ Description: Various helper tools for R developed at HI data lab, since
 Version: 0.1
 Author: Brian Abelson <brian@harmony-institute.org>
 Maintainer: Brian Abelson <brian@harmony-institute.org>
-License: Artistic-2.0
+License: MIT
 Depends:
     R (>= 2.15.1),
     tm,
