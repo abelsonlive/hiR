@@ -78,7 +78,7 @@ OPTIONAL: If you want to create a new package from scratch, start here:
     #' # a simple example
     #' x <- 2
     #' y <- 2
-    #' library('rpckg'')
+    #' library('rpckg')
     #' add(x, y)
     # insert your function below
     add <- function(x, y) {
