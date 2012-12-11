@@ -56,7 +56,7 @@ OPTIONAL: If you want to create a new package from scratch, start here:
     ```
 
 3. Save each of your functions in the ``/R`` subdirectory with a ``.R`` file extension, e.g. ``rpckg/R/add.R``
-4. Run the following commands in the pacakge's parent directory to build your ``NAMESPACE`` and ``DESCRIPTION`` files, and your ``\man`` directory, of ``.Rd`` files.
+4. Run the following commands in the pacakge's parent directory to build your ``NAMESPACE`` and ``DESCRIPTION`` files, and your ``/man`` directory of ``.Rd`` files.
 
     ```
     #R
