@@ -137,7 +137,7 @@ OPTIONAL: If you want to create a new package from scratch, start here:
     ```
     #!/bin/bash
     R CMD build rpckg
-    ftp -u ftp://cran.r-projects.org/incoming/ rpckg_0.1.targz
+    ftp -u ftp://cran.r-projects.org/incoming/ rpckg_0.1.tar.gz
     ```
 
 8. Locate the ``rpckg.Rcheck`` folder in the package's parent directory,
