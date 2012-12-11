@@ -24,8 +24,8 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
     ```
     #R
     library("devtools")
-    install_github("rpckg", "hinstitute")
-    library("rpckg")
+    install_github(p, "hinstitute")
+    library(p)
     ```
 
 2. Carefully format new functions you want to add acoording to this template: (_[more info](https://github.com/hadley/devtools/wiki/docs-function)_)
@@ -123,14 +123,14 @@ _OPTIONAL: build the package and push to cran_
     git push
     ```
 
-10. Finally, (re)install the package using ```devtools::install_github```:
+10. Finally, (re)install the package using ``devtools::install_github``:
 
     ```
     #R
     library("devtools")
-    install_github("rpckg", "hinstitute")
-    library("rpckg")
-    help(package="rpckg")
+    install_github(p, "hinstitute")
+    library(p)
+    help(package=p)
     ```
 
 _WARNING: if you install the package twice in the same R Session the manual will break. Simply restart R to fix this issue_
