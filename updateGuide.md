@@ -82,13 +82,16 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
     $ftp -u ftp://cran.r-projects.org/incoming/ rpckg_0.1.targz
     ```
 
-8. OR: locate the "hiR.Rcheck" folder in the package's parent directory, open this folder, move hiR-manual.pdf and hiR-ex.pdf into the "inst" folder, and overwite if they exist there already.
+8. OR: locate the "rpckg.Rcheck" folder in the package's parent directory, open this folder,
+   move rpckg.pdf and rpckg-ex.pdf into the "inst" folder,
+   and overwite if they exist there already.
+
 9. Now push these updates to git, e.g:
 
     ```
     $cd rpckg
     $cd git add .
-    $git commit -m "my commit"
+    $git commit -m "my first commit"
     $git push
     ```
 
