@@ -8,7 +8,7 @@ just follow these simple steps:
     ```
     path_to_package_dir <- "myNewPacakage"
     library("devtools")
-    create("devtools")
+    create(path_to_package_dir)
     ```
 
 2. Write your functions based on this template:
@@ -101,6 +101,7 @@ _this will run the code/examples, check for errors, and generate a manual; it ta
     ```
 
 11, Now reinstall the package using devtools:
+
     ```
     library("devtools")
     install_github("hiR", "hinstitute")
