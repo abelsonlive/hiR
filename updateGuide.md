@@ -60,7 +60,8 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
         R (>= 2.15.1)
         # your required packages would go here, separated by commas every line
     Suggests:
-        # your suggested packages would go here in the same format. these are packages the library rarely uses or only uses for examples.
+        # your suggested packages would go here in the same format.
+        # these are packages the library rarely uses or only uses for examples.
     LazyLoad: yes
     Collate:
         'add.R'
