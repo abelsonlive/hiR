@@ -78,15 +78,13 @@ just follow these simple steps:
     $R CMD check hiR
     ```
 
-7. OPTIONAL: build the package and push to cran
+7. OPTIONAL: now build the package and push to cran
 
     ```
     $RCMD build hiR
     $ftp ftp://cran.r-projects.org/incoming/ hiR_0.1.targz
     ```
-8. OR: locate the "hiR.Rcheck" folder in the package's parent directory.
-* Open this folder and move hiR-manual.pdf and hiR-ex.pdf into the "inst" folder.
-* Overwite if they exist already.
+8. OR: locate the "hiR.Rcheck" folder in the package's parent directory. Open this folder and move hiR-manual.pdf and hiR-ex.pdf into the "inst" folder. Overwite if they exist already.
 
 9. Now push these updates to git, e.g.
 
@@ -105,6 +103,9 @@ just follow these simple steps:
     library("hiR")
     help(package="hiR")
     ```
+
+###WARNING: if you install the package twice in the same R Session the manual will break.
+###simple restart R to fix this issue
 
 #fin!
 
