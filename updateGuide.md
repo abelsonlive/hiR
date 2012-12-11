@@ -100,6 +100,7 @@ OPTIONAL: If you want to create a new package from scratch, start here:
     #!/bin/bash
     R CMD check rpckg
     ```
+
 OPTIONAL: build the package and push to cran
 
     #!/bin/bash
