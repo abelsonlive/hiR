@@ -60,7 +60,7 @@
 #'     tree <- htmlTreeParse(page, useInternalNodes=T)
 #'
 #'    #get handles
-#'     handle_nodes <- getNodeSet(tree, '//*[@class="row100user"]/div/a')
+#'     handle_nodes <- getNodeSet(tree, '//*[@@class="row100user"]/div/a')
 #'     handle <- laply(handle_nodes, function(x) {
 #'                     handles <- xmlGetAttr(x, "href")
 #'                     gsub("/", "", handles)
