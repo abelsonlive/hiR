@@ -12,7 +12,7 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
     library("devtools")
     create(p)
 
-1. Or just, clone a repository from github
+1. Or just clone a repository from github
 
     ```
     #!/bin/bash
