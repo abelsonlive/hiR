@@ -53,7 +53,7 @@
 #'     url <- as.character(df$url)
 #'     page <- getURL(url)
 #'     library("XML")
-#'     tree <- htmlTreeParse(page, useInternalNodes=T)
+#'     tree <- htmlTreeParse(page, useInternalNodes = TRUE)
 #'
 #'    # get handles
 #'     handle_nodes <- getNodeSet(tree, '//*[@@class="row100user"]/div/a')
