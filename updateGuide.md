@@ -142,7 +142,7 @@ OPTIONAL: If you want to create a new package from scratch, start here:
     ```
 
 8. Locate the ``rpckg.Rcheck`` folder in the package's parent directory,
-   open this folder, move ``rpckg.pdf`` and ``rpckg-ex.pdf`` into ``rpckg`` or ``/inst/docs``
+   open this folder, move ``rpckg.pdf`` and ``rpckg-ex.pdf`` into ``rpckg`` or ``rpckg/docs``
    and overwite if they already exist.
 
 9. Now push these updates to git, e.g:
