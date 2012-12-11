@@ -24,11 +24,11 @@ Depends:
     RCurl,
     stringr,
     chron,
-    grid,
-    tools
+    grid
 Suggests:
     maps,
-    XML
+    XML,
+    tools
 LazyLoad: yes
 Collate:
     'assign_colors.R'
