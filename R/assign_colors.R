@@ -12,7 +12,9 @@
 #' @param na_omit Logical; should the function remove NAs. 'na_color' will be irrelevant if this is TRUE.
 #' @param alph Opacity level (0=transparent, 1=opaque)
 #'
-#' @return A data.frame with the variable, break assignments, and color assignments
+#' @return
+#' A data.frame with the variable,
+#' break assignments, and color assignments
 #'
 #' @export
 #'

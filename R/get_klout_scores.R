@@ -83,7 +83,9 @@
 #'
 #' # STEP THREE: Get Klout scores
 #' library("hiR")
-#' klout_data <- get_klout_scores(twitter_handles=twitter_counter$handle, api_key="8yng356gnjg37cvn4esbtewy", na_omit=FALSE)
+#' klout_data <- get_klout_scores(twitter_handles=twitter_counter$handle,
+#'                                api_key="8yng356gnjg37cvn4esbtewy",
+#'                                na_omit=FALSE)
 #' df <- data.frame(twitter_counter, klout_data)
 #'
 #' # STEP FOUR: plot comparative distributions
@@ -95,30 +97,33 @@
 #' lists$col <- alpha(cols, 0.3)
 #'
 #' # the plot
-#' # parameters
+#' #parameters
 #' par(family="serif",
 #'    xaxs="i",
 #'    cex.axis=0.7,
 #'    mai=c(0.8,0.8,0.5,0.3),
 #'    col.axis="grey50",
 #'    lend="round",
-#'    bty="n"
-#'    )
-#' # shell
+#'    bty="n")
+#' #shell
 #' dummy_x <- as.numeric(df$score[df$list=="followers"])
 #' plot(density(dummy_x),
 #'     type="n",
 #'     xlim=c(0,105),
 #'     xlab="Klout Score",
-#'     main="Density of Klout Scores by Top 100 lists"
-#'     )
-#' # data
+#'     main="Density of Klout Scores by Top 100 lists")
+#' #data
 #' for(i in 1:nrow(lists)) {
 #'    to_plot <- df[df$list==lists$l[i],]
 #'    polygon(density(na.omit(as.numeric(to_plot$score))), col=lists$col[i])
 #' }
-#' # legend
-#' legend(x=0, y=0.08, legend=paste("most", lists$l), col=lists$col, pch=20, bty="n")
+#' #legend
+#' legend(x=0,
+#'        y=0.08,
+#'        legend=paste("most", lists$l),
+#'        col=lists$col,
+#'        pch=20,
+#'        bty="n")
 
 
 get_klout_scores <- function(twitter_handles,
@@ -147,7 +152,8 @@ get_klout_scores <- function(twitter_handles,
 
     # step one: get klout ids
     getID <- function(twitter_handle) {
-            url <- paste0('http://api.klout.com/v2/identity.json/twitter?screenName=', twitter_handle, "&key=", api_key)
+            base <- 'http://api.klout.com/v2/identity.json/twitter?screenName='
+            url <- paste0(base, twitter_handle, "&key=", api_key)
             out <- try(fromJSON(getURL(url))$id, TRUE)
             if(class(out)=='try-error'){
                 id <- NA
@@ -165,7 +171,9 @@ get_klout_scores <- function(twitter_handles,
 
     if(length(twitter_handles_TRUE) < length(twitter_handles)) {
 
-        warning(paste("No Klout Scores for:", paste(twitter_handles[is.na(ids)], collapse=" ")))
+        warning(paste("No Klout Scores for:",
+                      paste(twitter_handles[is.na(ids)], collapse=" "))
+                )
 
         # partition output by error status
         exists <- !is.na(ids)

@@ -93,8 +93,6 @@ lda <- function(
     if(is.null(ids)) {
         ids <- 1:length(text)
     }
-url_pattern = '\b(?:(?:https?|ftp|file)://|www\\.|ftp\\.)[-A-Z0-9+&@#/%=~_|$?!:,.]*[A-Z0-9+&@#/%=~_|$]'
-gsub(pattern)
 
 # META VARIABLES - RAW TEXT
     # total number of characters/ features / unique features

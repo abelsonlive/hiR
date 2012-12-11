@@ -1,6 +1,6 @@
 \name{gen_var_names}
 \alias{gen_var_names}
-\title{Automatically generate variable names for count subsets.}
+\title{Automatically generate variable names for subsetted dataframes.}
 \usage{
   gen_var_names(roots, vars, delim = "_")
 }

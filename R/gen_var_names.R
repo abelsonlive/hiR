@@ -1,10 +1,10 @@
-#' Automatically generate variable names for count subsets.
+#' Automatically generate variable names for subsetted dataframes.
 #'
 #' Say you were building a dataset and wanted to automatically
 #' generate variable names by some pattern.
 #' For instance, you might want to do this with population counts
 #' within 100 census tracts by race
-#' IE: 
+#' IE:
 #' tracts <- paste("c", rep(1:100), sep="");
 #' race - c("black", "white", "hispanic");
 #' In this case you would want to generate 300 unique variable names

@@ -97,7 +97,9 @@ twitter_counter <- twitter_counter[,-1]
 
 # STEP THREE: Get Klout scores
 library("hiR")
-klout_data <- get_klout_scores(twitter_handles=twitter_counter$handle, api_key="8yng356gnjg37cvn4esbtewy", na_omit=FALSE)
+klout_data <- get_klout_scores(twitter_handles=twitter_counter$handle,
+                               api_key="8yng356gnjg37cvn4esbtewy",
+                               na_omit=FALSE)
 df <- data.frame(twitter_counter, klout_data)
 
 # STEP FOUR: plot comparative distributions
@@ -109,29 +111,32 @@ cols <- c("#5f0000", "#005e5f", "#005f30")
 lists$col <- alpha(cols, 0.3)
 
 # the plot
-# parameters
+#parameters
 par(family="serif",
    xaxs="i",
    cex.axis=0.7,
    mai=c(0.8,0.8,0.5,0.3),
    col.axis="grey50",
    lend="round",
-   bty="n"
-   )
-# shell
+   bty="n")
+#shell
 dummy_x <- as.numeric(df$score[df$list=="followers"])
 plot(density(dummy_x),
     type="n",
     xlim=c(0,105),
     xlab="Klout Score",
-    main="Density of Klout Scores by Top 100 lists"
-    )
-# data
+    main="Density of Klout Scores by Top 100 lists")
+#data
 for(i in 1:nrow(lists)) {
    to_plot <- df[df$list==lists$l[i],]
    polygon(density(na.omit(as.numeric(to_plot$score))), col=lists$col[i])
 }
-# legend
-legend(x=0, y=0.08, legend=paste("most", lists$l), col=lists$col, pch=20, bty="n")
+#legend
+legend(x=0,
+       y=0.08,
+       legend=paste("most", lists$l),
+       col=lists$col,
+       pch=20,
+       bty="n")
 }
 

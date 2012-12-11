@@ -1,8 +1,9 @@
-#' Classify the sentiment of text documents.
+#' Classify the sentiment of text documents
 #'
 #' This function takes a character vector of documents as an input and returns probabilistic sentiment classification.
 #' This function is a slight adjustment to "classify_polarity" in the "sentiment" package.
-#' WARNING: This still needs to be tweaked to return meaningul classifications.  Use the pos/neg ratio as a better metric for now.
+#' WARNING: This still needs to be tweaked to return meaningul classifications.
+#' Use the pos/neg ratio as a better metric for now.
 #'
 #' @param text A character vector of text blobs.
 #' @param algorithm A string indicating whether to use the naive bayes algorithm or a simple voter algorithm.
@@ -18,24 +19,29 @@
 #' @examples
 #' documents <- c("I am very happy, excited, and optimistic.",
 #'                "I am very scared, annoyed, and irritated.",
-#'                "Iraq's political crisis entered its second week one step closer to the potential
-#'                dissolution of the government, with a call for elections by a vital coalition partner
-#'                and a suicide attack that extended the spate of violence that has followed the withdrawal
+#'                "Iraq's political crisis entered its second
+#'                week one step closer to the potential
+#'                dissolution of the government, with a call
+#'                for elections by a vital coalition partner
+#'                and a suicide attack that extended the spate
+#'                of violence that has followed the withdrawal
 #'                of U.S. troops.",
-#'                "With nightfall approaching, Los Angeles authorities are urging residents to keep their
-#'                outdoor lights on as police and fire officials try to catch the person or people responsible
+#'                "With nightfall approaching, Los Angeles
+#'                authorities are urging residents to keep their
+#'                outdoor lights on as police and fire officials
+#'                try to catch the person or people responsible
 #'                for nearly 40 arson fires in the last three days.")
 #' library("hiR")
 #' classify_sentiment(documents,algorithm="bayes",verbose=TRUE)
 
 classify_sentiment <- function (text,
                        algorithm = "bayes",
-                       pstrong = 0.5,
-                       pweak = 1,
-                       prior = 1, # prior for the ratio
-                       neutral_range = c(1, 1.5), # low and high value of neutral range... INCLUSIVE!
-                       verbose = FALSE, #logical; should the function print how it's classifying each documenta
-                       ... # other arguments to pass to create_matrix in the sentiment package
+                       pstrong = 1,
+                       pweak = 0.75,
+                       prior = 1,
+                       neutral_range = c(1, 1.5),
+                       verbose = FALSE,
+                       ...
                        ) {
 
     if(!require('sentiment')) {

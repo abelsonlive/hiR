@@ -1,6 +1,6 @@
 \name{regress_text}
 \alias{regress_text}
-\title{This function automates lasso/ridge text regression.}
+\title{Automate lasso/ridge text regression}
 \usage{
   regress_text(text, y, stop_words = TRUE,
     stem_words = TRUE, stop_words_to_add = NULL,
@@ -14,8 +14,8 @@
   \item{y}{The outcome variable. Its class depends on the
   family of regression selected.}
 
-  \item{stop_words}{Logical; should the function stem
-  words?}
+  \item{stop_words}{Logical; should the function remove
+  stop words?}
 
   \item{stem_words}{Logical; should the function stem
   words?}
@@ -24,7 +24,7 @@
   stopwords}
 
   \item{sparse}{Level of sparsity at which a given feature
-  will not be considered}
+  will not be considered (0-1)}
 
   \item{family}{Regression type in glmnet}
 

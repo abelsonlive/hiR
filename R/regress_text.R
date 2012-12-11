@@ -1,19 +1,21 @@
-#' This function automates lasso/ridge text regression.
+#' Automate lasso/ridge text regression
 #'
 #' Adapted from: https://github.com/johnmyleswhite/TextRegression
 #'
 #' @param text, A charachter vector of text blobs to use as predictors.
 #' @param y The outcome variable. Its class depends on the family of regression selected.
-#' @param stop_words Logical; should the function stem words?
+#' @param stop_words Logical; should the function remove stop words?
 #' @param stem_words Logical; should the function stem words?
 #' @param stop_words_to_add A character vector of additional stopwords
-#' @param sparse Level of sparsity at which a given feature will not be considered
+#' @param sparse Level of sparsity at which a given feature will not be considered (0-1)
 #' @param family Regression type in glmnet
 #' @param alpha Alpha=1 is the lasso penalty, and alpha=0 the ridge penalty.
 #' @param n_splits Number of times to resample data
 #' @param size How much of the data should be used during resampling for model fitting?
 #'
-#' @return A list with a data.frame of terms and coefficients, and optimal lamda and rmse metrics for model comparison
+#' @return
+#' A list with a data.frame of terms and coefficients,
+#' and optimal lamda and rmse metrics for model comparison
 #'
 #' @export
 #'

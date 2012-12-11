@@ -20,16 +20,25 @@
 \examples{
 # Generate the data
 uid <- paste0("city", 1:5)
-location <- c("Boston, MA", "New York, NY", "Washington D.C.", "Philadelphia, PA", "Baltimore, MD")
+location <- c("Boston, MA",
+              "New York, NY",
+              "Washington D.C.",
+              "Philadelphia, PA",
+              "Baltimore, MD"
+              )
 uid_location <- data.frame(uid, location)
 
 # Run geocoding funciton
 library("plyr")
 library("hiR")
 geocoded_data <- ddply(uid_location, .(uid), geocode)
+summary(geocoded_data)
 
 # Plot results
+#param
 par(family="HersheySans")
+
+#map
 library("maps")
 regions <- c("new hampshire",
                "massachusetts",
@@ -40,10 +49,21 @@ regions <- c("new hampshire",
                "new york",
                "new jersey",
                "delaware",
-               "maryland")
+               "maryland"
+               )
 map("state", region=regions, col="grey80")
-points(geocoded_data$lng, geocoded_data$lat, pch=20, cex=2, col="steelblue")
-text(geocoded_data$lng-0.5, geocoded_data$lat+0.3, labels=geocoded_data$location, cex=1, col="darkred")
+
+#points + labels
+points(geocoded_data$lng,
+       geocoded_data$lat,
+       pch=20,
+       cex=2,
+       col="steelblue")
+text(geocoded_data$lng-0.5,
+     geocoded_data$lat+0.3,
+     labels=geocoded_data$location,
+     cex=1,
+     col="darkred")
 title("Major Cities on the Eastern Seaboard")
 }
 
