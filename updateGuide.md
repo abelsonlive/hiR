@@ -64,8 +64,8 @@ OPTIONAL: If you want to create a new package from scratch, start here:
     roxygenise(p)
     ```
 
-5. Open the ``DESCRIPTION`` file and make sure it follows this template;
-   Be careful to include all necessary packages under ``Depends:``.
+5. Open the ``DESCRIPTION`` file and make sure it follows this template,
+   be careful to include all necessary packages under ``Depends:``.
 
     ```
     #DESCRIPTION
