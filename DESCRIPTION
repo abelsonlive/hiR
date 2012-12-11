@@ -1,0 +1,42 @@
+Package: hidatalabs
+Title: HI data lab toolkit
+Description: Various helper tools for R developed at HI data labs, January -
+    December 2012.
+Version: 0.1
+Author: Brian Abelson <brianabelson@gmail.com>
+Maintainer: Brian Abelson <brianabelson@gmail.com>
+License: Artistic-2.0
+Depends:
+    R (>= 2.15.1),
+    tm,
+    lattice,
+    makeR,
+    classInt,
+    scales,
+    RColorBrewer,
+    plyr,
+    Matrix,
+    glmnet,
+    sentiment,
+    Rstem,
+    lda,
+    rjson,
+    RCurl,
+    stringr,
+    chron,
+    grid,
+    tools
+LazyLoad: yes
+Collate:
+    'assign_colors.R'
+    'calendar_heat_map.R'
+    'cbind_fill.R'
+    'classify_sentiment.R'
+    'gen_var_names.R'
+    'geocode.R'
+    'get_klout_scores.R'
+    'lda.R'
+    'leading_zeros.R'
+    'match_gender.R'
+    'regress_text.R'
+    'word_stemmer.R'
