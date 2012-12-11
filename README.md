@@ -8,3 +8,5 @@ How to Install:
 	library("hiR")
 	help(package="hiR")
 
+Manual:	
+![Alt text]("hiR-manual.pdf")
