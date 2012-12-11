@@ -55,7 +55,7 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
     }
     ```
 
-3. Save each of your functions in the ``\R`` subdirectory with a ``.R`` file extension, e.g. ``rpckg/R/add.R``
+3. Save each of your functions in the ``/R`` subdirectory with a ``.R`` file extension, e.g. ``rpckg/R/add.R``
 4. Run the following commands in the pacakge's parent directory to build your ``NAMESPACE`` and ``DESCRIPTION`` files, and your ``\man`` directory, of ``.Rd`` files.
 
     ```
@@ -82,9 +82,10 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
     Suggests:
         # your suggested packages would go here in the same format.
         # these are packages the library rarely uses or only uses for examples.
+        # same formate as Depnds:
     LazyLoad: yes
     Collate:
-        'add.R'
+        'add.R' #always use '' and no commas
     ```
 
 6. Make sure the functions in your ``NAMESAKE`` file match the functions under ``Collate:`` within your ``DESCRPTION`` file, e.g:
