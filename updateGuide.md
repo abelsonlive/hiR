@@ -97,7 +97,7 @@ just follow these simple steps:
     $git push
     ```
 
-10. Now reinstall the package using devtools:
+10. Now reinstall the package using devtools::install_github:
 
     ```
     library("devtools")
