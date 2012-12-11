@@ -6,8 +6,7 @@ Version: 0.1
 Authors: Burton Dewilde<burton@harmony-institute.org>,
     Sarah Tan <sarahtan@harmony-institute.org>,
     Brian Abelson <brian@harmony-institute.org> (2011-2012)
-Maintainers: Burton Dewilde<burton@harmony-institute.org>
-    and Sarah Tan <sarahtan@harmony-institute.org>
+Maintainer: Burton Dewilde<burton@harmony-institute.org>
 License: MIT
 Depends:
     R (>= 2.15.1),
