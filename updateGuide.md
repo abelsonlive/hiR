@@ -11,25 +11,25 @@ just follow these simple steps:
 
 2. Write your functions based on this template:
 
-    \#' Short description of function
-    \#'
-    \#' More detailed description of function
-    \#'
-    \#' @param x enter a description of this parameter's requirements
-    \#' @param y enter a description of this parameter's requirements
-    \#'
-    \#' @return
-    \#' An explanation of the values the function returns
-    \#'
-    \#' @export
-    \#'
-    \#' @example
-    \#' # a simple example
-    \#' x <- 2
-    \#' y <- 2
-    \#' library("hiR")
-    \#' add(x, y)
-    \#'
+    \#\' Short description of function
+    \#\'
+    \#\' More detailed description of function
+    \#\'
+    \#\' @param x enter a description of this parameter's requirements
+    \#\' @param y enter a description of this parameter's requirements
+    \#\'
+    \#\' @return
+    \#\' An explanation of the values the function returns
+    \#\'
+    \#\' @export
+    \#\'
+    \#\' @example
+    \#\' # a simple example
+    \#\' x <- 2
+    \#\' y <- 2
+    \#\' library("hiR")
+    \#\' add(x, y)
+    \#\'
     \# insert your function here
     add <- function(x, y) {
         x + y
