@@ -82,7 +82,6 @@ _OPTIONAL: If you want to create a new package from scratch, start here:_
     Suggests:
         # your suggested packages would go here in the same format.
         # these are packages the library rarely uses or only uses for examples.
-        # same formate as Depnds:
     LazyLoad: yes
     Collate:
         'add.R' #always use '' and no commas
