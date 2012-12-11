@@ -67,11 +67,10 @@
   etc.)}
 }
 \value{
-  A list of length three, including: [[1]] topic_words: A
-  table of the top n words per topic, n = n_topic_words
-  [[2]] document_stats: A data.frame of stats about topics
-  in each document [[3]] topic_words: A table of top topic
-  words in each document
+  A list of: $topic_words: A table of the top n words per
+  topic, n = n_topic_words $document_stats: A data.frame of
+  stats about topics in each document $topic_words: A table
+  of top topic words in each document
 }
 \description{
   lda is a wrapper for lda.collapsed.gibbs.sampler in the
