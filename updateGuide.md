@@ -13,15 +13,15 @@ just follow these simple steps:
     create(path_to_package_dir)
     ```
 
-2. Format your functions based on this template:
+2. Carefully format your functions acoording to this template:
 
     ```
-    #' Short description of function
+    #' A short description of the function
     #'
-    #' More detailed description of function
+    #' A more detailed description of the function
     #'
-    #' @param x Enter a description of parameter x's requirements
-    #' @param y Enter a description of parameter y's requirements
+    #' @param x A description of parameter x's requirements
+    #' @param y A description of parameter y's requirements
     #'
     #' @return
     #' An explanation of the values the function returns
@@ -108,14 +108,4 @@ just follow these simple steps:
 
 _WARNING: if you install the package twice in the same R Session the manual will break._
 _Simply restart R to fix this issue_
-## ##
-#fin!
-
-
-
-
-
-
-
-
 
