@@ -3,18 +3,15 @@
 [h/t @ hadley](http://scholarship.rice.edu/bitstream/handle/1911/36084/r-packages.key.pdf?sequence=2)
 
 If you'd like to add a function to this R package,
-just follow these simple steps:
+just follow these 10 simple steps:
 
 1. OPTIONAL: If you want to create a new package from scratch, start here:
-
     ```
     path_to_package_dir <- "myNewPacakage"
     library("devtools")
     create(path_to_package_dir)
     ```
-
 2. Carefully format your functions acoording to this template:
-
     ```
     #' A short description of the function
     #'
@@ -40,18 +37,14 @@ just follow these simple steps:
         x + y
     }
     ```
-
 3. Save each of your functions in the "R" subdirectory with a ".R" file extension, e.g. "add.R"
-
 4. Run the following commands in the pacakge's parent directory to build your NAMESPACE, DESCRIPTION, and man files.
-
     ```
     library("roxygen2")
     path_to_package_dir <- "hiR"
     roxygenise(path_to_package_dir)
     ```
-
-5. Open the "DESCRIPTION" file and make sure it follows this template:
+5. Open the "DESCRIPTION" file and make sure it follows this template. Be careful to include all dependencies.
     ```
     Package: hiR
     Title: Harmony Institute's toolkit for R
@@ -72,39 +65,31 @@ just follow these simple steps:
     Collate:
         'funcion1.R'
         'funtion2.R'
+        'add.R'
     ```
-
 6. Navigate to the pacakge's parent directory and run this in the command line:
-
     ```
     $R CMD check hiR
     ```
-
 7. OPTIONAL: now build the package and push to cran
-
     ```
     $R CMD build hiR
     $ftp -u ftp://cran.r-projects.org/incoming/ hiR_0.1.targz
     ```
 8. OR: locate the "hiR.Rcheck" folder in the package's parent directory, open this folder, move hiR-manual.pdf and hiR-ex.pdf into the "inst" folder, and overwite if they exist there already.
-
 9. Now push these updates to git, e.g:
-
     ```
     $cd hiR
     $cd git add .
     $git commit -m "my commit"
     $git push
     ```
-
-10. Now reinstall the package using devtools::install_github:
-
+10. Finally, reinstall the package using devtools::install_github:
     ```
     library("devtools")
     install_github("hiR", "hinstitute")
     library("hiR")
     help(package="hiR")
     ```
-
 _WARNING: if you install the package twice in the same R Session the manual will break. Simply restart R to fix this issue_
 
