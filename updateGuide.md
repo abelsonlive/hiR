@@ -104,8 +104,9 @@ just follow these simple steps:
     help(package="hiR")
     ```
 
-##WARNING: if you install the package twice in the same R Session the manual will break. Simply restart R to fix this issue##
-
+_WARNING: if you install the package twice in the same R Session the manual will break._
+_Simply restart R to fix this issue_
+## ##
 #fin!
 
 
