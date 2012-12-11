@@ -33,6 +33,7 @@
 #'
 #' @export
 #'
+
 lda <- function(
 
     # DATA #

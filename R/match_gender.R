@@ -10,6 +10,7 @@
 #' names <- c("cindy", "sally", "bob", "joe")
 #' library("hiR")
 #' match_gender(names)
+
 match_gender <- function(names,
                          full=FALSE
                          ) {

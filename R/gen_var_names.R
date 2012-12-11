@@ -25,6 +25,7 @@
 #' race <- c("black", "white", "hispanic")
 #' library("hiR")
 #' gen_var_names(roots=tracts, vars=race)
+
 gen_var_names <- function(roots, vars, delim="_"){
     n.roots <- length(roots)
     n.vars <- length(vars)

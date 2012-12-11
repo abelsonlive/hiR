@@ -18,6 +18,7 @@
 #' value <- rnorm(length(date), mean = 10, sd=1)
 #' library("hiR")
 #' calendar_heat_map(dates=date, values=value)
+
 calendar_heat_map <- function(dates,
                           values,
                           breaks,

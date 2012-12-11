@@ -4,6 +4,7 @@
 #'
 #' @export
 #'
+
 cbind_fill<-function(...){
     nm <- list(...)
     nm <- lapply(nm, as.matrix)

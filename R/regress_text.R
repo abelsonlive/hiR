@@ -35,6 +35,7 @@
 #' res <- regress_text(text, y)
 #'
 #' print(res[[1]])
+
 regress_text <- function(text, # charachter vector of text blobs
                          y, # outcome variable
                          stop_words = TRUE, # logical; should the function stem words?

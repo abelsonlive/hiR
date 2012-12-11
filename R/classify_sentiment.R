@@ -27,6 +27,7 @@
 #'                for nearly 40 arson fires in the last three days.")
 #' library("hiR")
 #' classify_sentiment(documents,algorithm="bayes",verbose=TRUE)
+
 classify_sentiment <- function (text,
                        algorithm = "bayes",
                        pstrong = 0.5,

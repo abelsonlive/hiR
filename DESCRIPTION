@@ -1,10 +1,11 @@
-Package: hidatalabs
-Title: HI data lab toolkit
-Description: Various helper tools for R developed at HI data labs, January -
-    December 2012.
+Package: hiR
+Title: HI data lab's toolkit for R
+Description: Various helper tools for R developed at HI data labs, January 2012 -
 Version: 0.1
-Author: Brian Abelson <brianabelson@gmail.com>
-Maintainer: Brian Abelson <brianabelson@gmail.com>
+Author: Brian Abelson <brian@harmony-institute.org>
+Maintainer: Brian Abelson <brian@harmony-institute.org>,
+            Burton DeWilde <burton@harmony-institute.org>,
+            Sarah Tan <sarah@harmony-institute.org>,
 License: Artistic-2.0
 Depends:
     R (>= 2.15.1),
