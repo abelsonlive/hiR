@@ -3,7 +3,7 @@ Title: Harmony Institute's toolkit for R
 Description: Various helper tools for R maintained by HI data lab, since
     December 2012
 Version: 0.1
-Author: HI Date Lab
+Author: HI Data Lab <info@harmony-institute.org>
 Maintainers: Burton Dewilde <burton@harmony-institute.org>
 License: MIT
 Depends:
