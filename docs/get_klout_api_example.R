@@ -72,37 +72,64 @@
  #STEP THREE: Get Klout scores
  library("hiR")
  klout_data <- get_klout_scores(twitter_handles=twitter_counter$handle, api_key="8yng356gnjg37cvn4esbtewy", na_omit=FALSE)
- df <- data.frame(twitter_counter, klout_data)
+
 
  #STEP FOUR: plot comparative distributions
  #subsets and colors
+ df <- data.frame(twitter_counter, klout_data)
  lists <- unique(df$list)
  lists <- data.frame(l = lists, stringsAsFactors=F)
  library("scales")
- cols <- c("#5f0000", "#005e5f", "#005f30")
- lists$col <- alpha(cols, 0.3)
+ lists$col <- c("#5f0000", "#005e5f", "#005f30")
+ lists$acol <- alpha(cols, 0.3)
 
  #parameters
- par(family="serif",
+ library(extrafont)
+ par(family="Helvetica Neue",
     xaxs="i",
     cex.axis=0.7,
-    mai=c(0.8,0.8,0.5,0.3),
+    mai=c(0.6,0.6,0.5,0.1),
     col.axis="grey50",
+    fg = "grey50",
+    col.lab = "grey50",
+    col.main = "grey40",
     lend="round",
-    bty="n"
+    bty="n",
+    mgp=c(2,1,0)
     )
  #shell
  dummy_x <- as.numeric(df$score[df$list=="followers"])
- plot(density(dummy_x),
+ dx1 <- density(dummy_x)
+ max_y1 <- max(dx1$y)
+ plot(dx1,
      type="n",
      xlim=c(0,105),
+     ylim=c(0, max_y1 + (.05 * max_y1)),
      xlab="Klout Score",
      main="Density of Klout Scores by Top 100 lists"
      )
- #data
+ # plot data
  for(i in 1:nrow(lists)) {
-    to_plot <- df[df$list==lists$l[i],]
-    polygon(density(na.omit(as.numeric(to_plot$score))), col=lists$col[i])
+    the_list <- lists$l[i]
+    col <- lists$col[i]
+    acol <- lists$acol[i]
+    to_plot <- df[df$list==the_list,]
+
+    # extract scores, remove NAs
+    x <- as.numeric(na.omit(to_plot$score))
+    # create distribution
+    # get mean value
+    dx <- density(x)
+    mean_x <- mean(x)
+    max_x <- max(x)
+    # get the max point of y in the distribution
+    max_y <- max(dx$y)
+    mean_y <- mean(dx$y)
+    # plot
+    polygon(dx, col=acol)
+    # store mean for text
+    the_text <- paste("most", the_list)
+    text(mean_x, max_y, labels=the_text, col = col, pos=3)
  }
- #legend
- legend(x=0, y=0.08, legend=paste("most", lists$l), col=lists$col, pch=20, bty="n")
+
+

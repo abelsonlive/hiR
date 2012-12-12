@@ -23,7 +23,7 @@
 #' @param burnin The number of initial iterations to ignore. the function adds burnin to n_iter
 #' @param alpha The scalar value of the dirichlet hyperparameter for topic proportions
 #' @param eta The scalar value of the dirichlet hyperparamater for topic multinomials
-#' @param n_assignments The number of assignments to return (returned as ass_topic_a, ass_topic_b, ass_topic_c, etc.)
+#' @param n_assignments The number of assignments to return (returned as topic_a, topic_b etc.)
 #'
 #' @return
 #' A list of:
@@ -60,7 +60,7 @@ lda <- function(
     eta = 0.1,
 
     # OUTPUT #
-    n_assignments = 3 # number of assigments to return (returned as ass_topic_a, ass_topic_b, ass_topic_c, etc.)
+    n_assignments = 2
 
     ) {
 
@@ -251,7 +251,7 @@ lda <- function(
     names(topics) <- c("id", paste0("n_topic_", 1:K), paste0("p_topic_", 1:K))
 
     # add assignment variables dynamically
-    topic_ass_vars <- paste0("ass_topic_", letters[1:n_assignments])
+    topic_ass_vars <- paste0("topic_", letters[1:n_assignments])
     topics[,topic_ass_vars] <- 0
 
     # assign primary and secondary topic(s), get distribution topics by document
