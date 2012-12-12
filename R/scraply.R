@@ -1,5 +1,6 @@
 #' Scrape urls with llply, handling errors
 #'
+#' IN DEVELOPMENT
 #' This function is a shell for applying scraping
 #' functions aross a vector of urls while handling errors
 #'

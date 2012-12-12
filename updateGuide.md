@@ -57,7 +57,7 @@ OPTIONAL: If you want to create a new package from scratch, start here:
 
 3. Save each of your functions in the ``R`` subdirectory with a ``.R`` file extension, e.g. to ``rpckg/R/add.R``,
 
-    Another, somewhat absurd, but affective method:
+    Another, somewhat absurd, but effective method:
 
     ```
     #R
@@ -88,12 +88,12 @@ OPTIONAL: If you want to create a new package from scratch, start here:
     write(add, paste0(p, "/R/add.R"))
     ```
 
-4. Run the following commands in the pacakge's parent directory to build your ``NAMESPACE`` and ``DESCRIPTION`` files, and your ``/man`` directory of ``.Rd`` files.
+4. Run the following commands in the pacakge's parent directory to build your ``NAMESPACE`` and ``DESCRIPTION`` files, and your ``man`` directory of ``.Rd`` files.
 
     ```
     #R
     library("roxygen2")
-    roxygenise(p)
+    roxygenize(p)
     ```
 
 5. Open the ``DESCRIPTION`` file and make sure it follows this template,
@@ -105,8 +105,8 @@ OPTIONAL: If you want to create a new package from scratch, start here:
     Title: A package that does someting in R
     Description: Explanation of what the package does broadly
     Version: 0.1
-    Authors: name1 <name1@domain.come>, name2 <name2@domain.come>
-    Maintainers: name1 <name1@domain.come>, name3 <name3@domain.come>
+    Author: name1 <name1@domain.come>
+    Maintainers: name2 <name1@domain.come>
     License: MIT
     Depends:
         R (>= 2.15.1)
@@ -116,7 +116,7 @@ OPTIONAL: If you want to create a new package from scratch, start here:
         # these are packages the library rarely uses or only uses for examples.
     LazyLoad: yes
     Collate:
-        'add.R' #always use '' and no commas
+        'add.R' #always use '' and no commas, only filepath per line
     ```
 
 6. Make sure the functions in your ``NAMESAKE`` file match the functions under ``Collate:`` within your ``DESCRPTION`` file, e.g:
@@ -126,7 +126,7 @@ OPTIONAL: If you want to create a new package from scratch, start here:
     export(add.R)
     ```
 
-7. Navigate to ``rpkgs``'s parent directory and run this in the command line. Make note of any error messages.
+7. Navigate to ``rpckg``'s parent directory and run this in the command line. Make note of any error messages.
 
     ```
     #!/bin/bash
@@ -141,7 +141,7 @@ OPTIONAL: If you want to create a new package from scratch, start here:
     ftp -u ftp://cran.r-projects.org/incoming/ rpckg_0.1.tar.gz
     ```
 
-8. Locate the ``rpckg.Rcheck`` folder in the package's parent directory,
+8. OR, Locate the ``rpckg.Rcheck`` folder in the package's parent directory,
    open this folder, move ``rpckg.pdf`` and ``rpckg-ex.pdf`` into ``rpckg`` or ``rpckg/docs``
    and overwite if they already exist.
 
