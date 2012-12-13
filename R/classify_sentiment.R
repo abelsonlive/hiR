@@ -46,7 +46,7 @@ classify_sentiment <- function (text,
 
     if(!require('sentiment')) {
         print("downloading and installing package 'sentiment' from source...")
-        download.files("http://cran.r-project.org/src/contrib/Archive/sentiment/sentiment_0.2.tar.gz", "sentiment.tar.gz")
+        download.file("http://cran.r-project.org/src/contrib/Archive/sentiment/sentiment_0.2.tar.gz", "sentiment.tar.gz")
         install.packages("sentiment.tar.gz", repos=NULL, type="source")
         library("sentiment")
     }
