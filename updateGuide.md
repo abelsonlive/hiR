@@ -28,7 +28,7 @@ OPTIONAL: If you want to create a new package from scratch, start here:
     library(p)
     ```
 
-2. Carefully format new functions you want to add acoording to this template: ([more info](https://github.com/hadley/devtools/wiki/docs-function))
+2. Carefully format new functions you want to add according to this template: ([more info](https://github.com/hadley/devtools/wiki/docs-function))
 
     ```
     #' A short description of the R function
