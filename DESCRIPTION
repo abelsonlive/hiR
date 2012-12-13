@@ -1,8 +1,7 @@
 Package: hiR
 Title: Harmony Institute's toolkit for R
-Description: Various helper tools for R maintained by HI data lab, since
-    December 2012
-Version: 0.1
+Description: Various helper tools for R maintained by HI data lab
+Version: 0.2
 Author: HI Data Lab <info@harmony-institute.org>
 Maintainer: Burton Dewilde <burton@harmony-institute.org>
 License: MIT
