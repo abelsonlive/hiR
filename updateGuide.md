@@ -55,38 +55,7 @@ OPTIONAL: If you want to create a new package from scratch, start here:
     }
     ```
 
-3. Save each of your functions in the ``R`` subdirectory with a ``.R`` file extension, e.g. to ``rpckg/R/add.R``,
-
-    Another, somewhat absurd, but effective method:
-
-    ```
-    #R
-    add <- c("
-    #' A short description of the R function
-    #'
-    #' A more detailed description of the function
-    #'
-    #' @param x A description of parameter x's requirements
-    #' @param y A description of parameter y's requirements
-    #'
-    #' @return
-    #' An explanation of the values the function returns
-    #'
-    #' @export
-    #'
-    #' @example
-    #' # a simple example
-    #' x <- 2
-    #' y <- 2
-    #' library('rpckg')
-    #' add(x, y)
-    # insert your function below
-    add <- function(x, y) {
-        x + y
-    }
-    ")
-    write(add, paste0(p, "/R/add.R"))
-    ```
+3. Save each of your functions in the ``R`` subdirectory with a ``.R`` file extension, e.g. to ``rpckg/R/add.R``
 
 4. Run the following commands in the pacakge's parent directory to build your ``NAMESPACE`` and ``DESCRIPTION`` files, and your ``man`` directory of ``.Rd`` files.
 
