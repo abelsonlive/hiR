@@ -16,7 +16,6 @@ Depends:
     plyr,
     Matrix,
     glmnet,
-    sentiment,
     Rstem,
     lda,
     rjson,
@@ -27,7 +26,7 @@ Depends:
 Suggests:
     maps,
     XML,
-    tools
+    sentiment
 LazyLoad: yes
 Collate:
     'assign_colors.R'
