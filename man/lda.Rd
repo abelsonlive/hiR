@@ -9,7 +9,7 @@
     char_range = c(2, 50), min_word_count = 5,
     n_topics = 10, n_topic_words = 20, n_iter = 1000,
     burnin = 100, alpha = 0.1, eta = 0.1,
-    n_assignments = 3)
+    n_assignments = 2)
 }
 \arguments{
   \item{text}{A character vector of text documents}
@@ -63,8 +63,7 @@
   hyperparamater for topic multinomials}
 
   \item{n_assignments}{The number of assignments to return
-  (returned as ass_topic_a, ass_topic_b, ass_topic_c,
-  etc.)}
+  (returned as topic_a, topic_b etc.)}
 }
 \value{
   A list of: $topic_words: A table of the top n words per

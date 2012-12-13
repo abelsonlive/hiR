@@ -385,50 +385,50 @@ levelplot.forumula <- function (x, data = NULL, allow.multiple = is.null(groups)
                 if (y.start > 0) {
                   grid.lines(x = c(x.start, x.start + 1), y = c(y.start -
                     0.5, y.start - 0.5), default.units = "native",
-                    gp = gpar(col = "black", lwd = 1.75))
+                    gp = gpar(col = "grey50", lwd = 1.75))
                   grid.lines(x = c(x.start + 1, x.start + 1),
                     y = c(y.start - 0.5, -0.5), default.units = "native",
-                    gp = gpar(col = "black", lwd = 1.75))
+                    gp = gpar(col = "grey50", lwd = 1.75))
                   grid.lines(x = c(x.start, x.start), y = c(y.start -
-                    0.5, 6.5), default.units = "native", gp = gpar(col = "black",
+                    0.5, 6.5), default.units = "native", gp = gpar(col = "grey50",
                     lwd = 1.75))
                   if (y.end < 6) {
                     grid.lines(x = c(x.start + 1, x.finis + 1),
                       y = c(-0.5, -0.5), default.units = "native",
-                      gp = gpar(col = "black", lwd = 1.75))
+                      gp = gpar(col = "grey50", lwd = 1.75))
                     grid.lines(x = c(x.start, x.finis), y = c(6.5,
-                      6.5), default.units = "native", gp = gpar(col = "black",
+                      6.5), default.units = "native", gp = gpar(col = "grey50",
                       lwd = 1.75))
                   }
                   else {
                     grid.lines(x = c(x.start + 1, x.finis), y = c(-0.5,
-                      -0.5), default.units = "native", gp = gpar(col = "black",
+                      -0.5), default.units = "native", gp = gpar(col = "grey50",
                       lwd = 1.75))
                     grid.lines(x = c(x.start, x.finis), y = c(6.5,
-                      6.5), default.units = "native", gp = gpar(col = "black",
+                      6.5), default.units = "native", gp = gpar(col = "grey50",
                       lwd = 1.75))
                   }
                 }
                 else {
                   grid.lines(x = c(x.start, x.start), y = c(-0.5,
-                    6.5), default.units = "native", gp = gpar(col = "black",
+                    6.5), default.units = "native", gp = gpar(col = "grey50",
                     lwd = 1.75))
                 }
                 if (y.start == 0) {
                   if (y.end < 6) {
                     grid.lines(x = c(x.start, x.finis + 1), y = c(-0.5,
-                      -0.5), default.units = "native", gp = gpar(col = "black",
+                      -0.5), default.units = "native", gp = gpar(col = "grey50",
                       lwd = 1.75))
                     grid.lines(x = c(x.start, x.finis), y = c(6.5,
-                      6.5), default.units = "native", gp = gpar(col = "black",
+                      6.5), default.units = "native", gp = gpar(col = "grey50",
                       lwd = 1.75))
                   }
                   else {
                     grid.lines(x = c(x.start + 1, x.finis), y = c(-0.5,
-                      -0.5), default.units = "native", gp = gpar(col = "black",
+                      -0.5), default.units = "native", gp = gpar(col = "grey50",
                       lwd = 1.75))
                     grid.lines(x = c(x.start, x.finis), y = c(6.5,
-                      6.5), default.units = "native", gp = gpar(col = "black",
+                      6.5), default.units = "native", gp = gpar(col = "grey50",
                       lwd = 1.75))
                   }
                 }
@@ -440,19 +440,19 @@ levelplot.forumula <- function (x, data = NULL, allow.multiple = is.null(groups)
                   y.last.m <- dates.fsubs$dotw[last.month] +
                     0.5
                   grid.lines(x = c(x.last.m, x.last.m), y = c(-0.5,
-                    y.last.m), default.units = "native", gp = gpar(col = "black",
+                    y.last.m), default.units = "native", gp = gpar(col = "grey50",
                     lwd = 1.75))
                   if ((y.last.m) < 6) {
                     grid.lines(x = c(x.last.m, x.last.m - 1),
                       y = c(y.last.m, y.last.m), default.units = "native",
-                      gp = gpar(col = "black", lwd = 1.75))
+                      gp = gpar(col = "grey50", lwd = 1.75))
                     grid.lines(x = c(x.last.m - 1, x.last.m -
                       1), y = c(y.last.m, 6.5), default.units = "native",
-                      gp = gpar(col = "black", lwd = 1.75))
+                      gp = gpar(col = "grey50", lwd = 1.75))
                   }
                   else {
                     grid.lines(x = c(x.last.m, x.last.m), y = c(-0.5,
-                      6.5), default.units = "native", gp = gpar(col = "black",
+                      6.5), default.units = "native", gp = gpar(col = "grey50",
                       lwd = 1.75))
                   }
                 }

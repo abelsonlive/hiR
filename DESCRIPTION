@@ -33,7 +33,6 @@ LazyLoad: yes
 Collate:
     'assign_colors.R'
     'calendar_heat_map.R'
-    'cbind_fill.R'
     'classify_sentiment.R'
     'gen_var_names.R'
     'geocode.R'
@@ -43,4 +42,3 @@ Collate:
     'match_gender.R'
     'regress_text.R'
     'word_stemmer.R'
-    'scraply.R'
