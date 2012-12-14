@@ -106,4 +106,5 @@ geocode <- function(uid_location) {
             stop(paste("Hit rate limit at:", uid, location))
         }
     }
+    Sys.sleep(0.1)
 }
