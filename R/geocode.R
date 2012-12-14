@@ -4,6 +4,7 @@
 #'
 #' @param uid_location A data.frame with one column named "uid" - a vector unique ids
 #'  and another column named "location" - a vector of strings of text to geocode
+#' @param service either yahoo or google, you can programmatically alternate to avoid rate limits
 #'
 #' @return
 #' A data.frame with the uid, location, lat, lng, and type indicating the geocoding precision
@@ -28,7 +29,7 @@
 #' summary(geocoded_data)
 #'
 #' # Plot results
-#' #param
+#' #params
 #' par(family="HersheySans")
 #'
 #' #map
@@ -59,52 +60,62 @@
 #'      col="darkred")
 #' title("Major Cities on the Eastern Seaboard")
 
-geocode <- function(uid_location) {
+geocode <- function(uid_location, service="yahoo", yahoo_appid='s6KnNl30') {
 
-    # libraries
-    if(!require("rjson")){
-        install.packages("rjson")
-        library("rjson")
+    if(service=="yahoo") {
+        base_url <- paste0("http://where.yahooapis.com/geocode?appid=", yahoo_appid,"&flags=j" ,"&q=")
     }
-    if(!require("RCurl")){
-        install.packages("RCurl")
-        library("RCurl")
+    if (service="google") {
+        base_url <- "http://maps.googleapis.com/maps/api/geocode/json?sensor=false&address="
     }
-    if(!require("plyr")){
-        install.packages("plyr")
-        library("plyr")
+    if(service!="yahoo" & service!="google"){
+        stop("only google and yahoo geocoding apis are currently supported")
     }
 
     # build query
     uid <- as.character(uid_location$uid)
     location <- as.character(uid_location$location)
-    base_url <- "http://maps.googleapis.com/maps/api/geocode/json?address="
-    geo_url <- paste0(base_url, URLencode(location), "&sensor=false")
+    geo_url <- paste0(base_url, URLencode(location))
 
     # geocode
-    print(paste("Geocoding:", location))
+    cat(paste("Geocoding:", location))
+    cat("\n")
     geo_text <- try(getURL(geo_url))
     if(class(geo_text)=="try-error"){
         geo_text = try(readLines(geo_url))
     }
-
+    geo_url
     if (class(geo_text)=="try-error"){
-        print(paste("having trouble reading this query:", uid))
+        cat(paste("having trouble reading this query:", uid))
+        cat("\n")
     }
     #
     geo_json <- fromJSON(geo_text)
-
-    if(geo_json$status == "OK"){
-        lat = geo_json$results[[1]]$geometry$location$lat
-        lng = geo_json$results[[1]]$geometry$location$lng
-        type = geo_json$results[[1]]$geometry$location_type
-        info <- data.frame(uid, location, lat, lng, type, stringsAsFactors=F)
-        return(info)
-      }
-      else{
-        if(geo_json$status == "OVER_QUERY_LIMIT") {
+    if (service="google") {
+        if(geo_json$status == "OK"){
+            lat = geo_json$results[[1]]$geometry$location$lat
+            lng = geo_json$results[[1]]$geometry$location$lng
+            type = geo_json$results[[1]]$geometry$location_type
+            info <- data.frame(uid, location, lat, lng, type, stringsAsFactors=F)
+            return(info)
+          }
+          else{
+            if(geo_json$status == "OVER_QUERY_LIMIT") {
+                stop(paste("Hit rate limit at:", uid, location))
+            }
+        }
+    }
+    if(service=="yahoo") {
+        status <- geo_json$ResultSet$Error
+        if(status==0){
+            lat = geo_json$ResultSet$Results[[1]]$latitude
+            lng = geo_json$ResultSet$Results[[1]]$longitude
+            quality = geo_json$R$ResultSet$Results[[1]]$quality
+            info <- data.frame(uid, location, lat, lng, quality, stringsAsFactors=F)
+            return(info)
+        } else {
             stop(paste("Hit rate limit at:", uid, location))
         }
     }
-    Sys.sleep(0.1)
+        Sys.sleep(0.1)
 }
