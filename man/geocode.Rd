@@ -2,12 +2,19 @@
 \alias{geocode}
 \title{Geocode strings of text via the Google API}
 \usage{
-  geocode(uid_location)
+  geocode(uid_location, service = "yahoo",
+    yahoo_appid = "")
 }
 \arguments{
   \item{uid_location}{A data.frame with one column named
   "uid" - a vector unique ids and another column named
   "location" - a vector of strings of text to geocode}
+
+  \item{service}{either yahoo or google, you can
+  programmatically alternate to avoid rate limits}
+
+  \item{yahoo_appid}{Your yahoo_appid from
+  https://developer.apps.yahoo.com/dashboard/createKey.html}
 }
 \value{
   A data.frame with the uid, location, lat, lng, and type
@@ -35,7 +42,7 @@ geocoded_data <- ddply(uid_location, .(uid), geocode)
 summary(geocoded_data)
 
 # Plot results
-#param
+#params
 par(family="HersheySans")
 
 #map

@@ -5,6 +5,7 @@
 #' @param uid_location A data.frame with one column named "uid" - a vector unique ids
 #'  and another column named "location" - a vector of strings of text to geocode
 #' @param service either yahoo or google, you can programmatically alternate to avoid rate limits
+#' @param yahoo_appid Your yahoo_appid from https://developer.apps.yahoo.com/dashboard/createKey.html
 #'
 #' @return
 #' A data.frame with the uid, location, lat, lng, and type indicating the geocoding precision
@@ -60,7 +61,7 @@
 #'      col="darkred")
 #' title("Major Cities on the Eastern Seaboard")
 
-geocode <- function(uid_location, service="yahoo", yahoo_appid='s6KnNl30') {
+geocode <- function(uid_location, service="yahoo", yahoo_appid='') {
 
     if(service=="yahoo") {
         base_url <- paste0("http://where.yahooapis.com/geocode?appid=", yahoo_appid,"&flags=j" ,"&q=")
