@@ -65,7 +65,7 @@ geocode <- function(uid_location, service="yahoo", yahoo_appid='s6KnNl30') {
     if(service=="yahoo") {
         base_url <- paste0("http://where.yahooapis.com/geocode?appid=", yahoo_appid,"&flags=j" ,"&q=")
     }
-    if (service="google") {
+    if (service=="google") {
         base_url <- "http://maps.googleapis.com/maps/api/geocode/json?sensor=false&address="
     }
     if(service!="yahoo" & service!="google"){
@@ -84,20 +84,18 @@ geocode <- function(uid_location, service="yahoo", yahoo_appid='s6KnNl30') {
     if(class(geo_text)=="try-error"){
         geo_text = try(readLines(geo_url))
     }
-    geo_url
     if (class(geo_text)=="try-error"){
         cat(paste("having trouble reading this query:", uid))
         cat("\n")
     }
     #
     geo_json <- fromJSON(geo_text)
-    if (service="google") {
+    if (service=="google") {
         if(geo_json$status == "OK"){
-            lat = geo_json$results[[1]]$geometry$location$lat
-            lng = geo_json$results[[1]]$geometry$location$lng
-            type = geo_json$results[[1]]$geometry$location_type
+            lat <- geo_json$results[[1]]$geometry$location$lat
+            lng <- geo_json$results[[1]]$geometry$location$lng
+            type <- geo_json$results[[1]]$geometry$location_type
             info <- data.frame(uid, location, lat, lng, type, stringsAsFactors=F)
-            return(info)
           }
           else{
             if(geo_json$status == "OVER_QUERY_LIMIT") {
@@ -108,14 +106,14 @@ geocode <- function(uid_location, service="yahoo", yahoo_appid='s6KnNl30') {
     if(service=="yahoo") {
         status <- geo_json$ResultSet$Error
         if(status==0){
-            lat = geo_json$ResultSet$Results[[1]]$latitude
-            lng = geo_json$ResultSet$Results[[1]]$longitude
-            quality = geo_json$R$ResultSet$Results[[1]]$quality
+            lat <- as.numeric(geo_json$ResultSet$Results[[1]]$latitude)
+            lng <- as.numeric(geo_json$ResultSet$Results[[1]]$longitude)
+            quality <- as.numeric(geo_json$ResultSet$Results[[1]]$quality)
             info <- data.frame(uid, location, lat, lng, quality, stringsAsFactors=F)
-            return(info)
         } else {
             stop(paste("Hit rate limit at:", uid, location))
         }
     }
-        Sys.sleep(0.1)
+    Sys.sleep(0.1)
+    return(info)
 }
