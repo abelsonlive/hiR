@@ -33,7 +33,7 @@
 assign_colors <- function(var,
                          n = 9,
                          style = "jenks",
-                         pal = "Spectral", # Palettes from RColorBrewer
+                         pal = "Reds", # Palettes from RColorBrewer
                          na_color ='#787878', # Color to give NA's
                          na_omit = FALSE, # Logical, argument above will be irrelevant if TRUE
                          alph=1 # Opacity (0-1)
