@@ -33,7 +33,7 @@
 assign_colors <- function(var,
                          n = 9,
                          style = "jenks",
-                         pal = "Reds", # Palettes from RColorBrewer
+                         palette = "Reds", # Palettes from RColorBrewer
                          na_color ='#787878', # Color to give NA's
                          na_omit = FALSE, # Logical, argument above will be irrelevant if TRUE
                          alph=1 # Opacity (0-1)
@@ -63,7 +63,7 @@ assign_colors <- function(var,
     }
 
     # create colors
-    cols <- brewer.pal(n, pal)
+    cols <- brewer.pal(n, palette)
 
     # create breaks
     print("creating breaks...")
