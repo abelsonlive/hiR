@@ -44,25 +44,14 @@ assign_colors <- function(var,
     }
 
     # create colors
-    cols <- brewer.pal(n, pal)
+    c <- data.frame(col = brewer.pal(n, pal), brk = 1:n)
+    c_na <- data.frame(col = na_color, brk = NA)
+    c <- rbind(c, c_na)
 
     # create breaks
-    print("creating breaks...")
-    cuts <- classIntervals(var, n, style = style)
-    breaks <- cut(var, breaks = cuts$brks, labels = FALSE)
+    cuts <- classIntervals(var, n, style = "jenks")
+    b <- data.frame(brk = cut(var, breaks = cuts$brks, labels = FALSE))
 
-    # create function
-    assignColor <- function(x, cols = cols) {
-                     if(is.na(x)) {
-                        assignment <- alpha(na_color, alph)
-                     } else {
-                        assignment <- alpha(cols[x], alph)
-                     }
-                   return(assignment)
-                }
-    print("assigning colors...")
-
-    # assign colors to breaks
-    assignments <- unlist(llply(breaks, assignColor, .progress="text"))
-    return(data.frame(var, brk = breaks, col = assignments))
+    # assign and return
+    return(join(c, b, by="brk", type="right"))
 }
