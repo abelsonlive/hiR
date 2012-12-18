@@ -3,7 +3,7 @@
 \title{Partition a numeric vector into a set of breaks and assign colors}
 \usage{
   assign_colors(var, n = 9, style = "jenks",
-    pal = "Spectral", na_color = "#787878",
+    palette = "Reds", na_color = "#787878",
     na_omit = FALSE, alph = 1)
 }
 \arguments{
@@ -16,7 +16,7 @@
   "equal", "pretty", "quantile", "kmeans", "hclust",
   "bclust", "fisher", or "jenks"}
 
-  \item{pal}{Palette from RColorBrewer}
+  \item{palette}{Palette from RColorBrewer}
 
   \item{na_color}{Hex code to assign NA values}
 
