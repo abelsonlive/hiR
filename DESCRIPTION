@@ -29,7 +29,6 @@ Suggests:
     sentiment
 LazyLoad: yes
 Collate:
-    'assign_colors.R'
     'calendar_heat_map.R'
     'classify_sentiment.R'
     'gen_var_names.R'

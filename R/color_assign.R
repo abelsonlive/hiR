@@ -7,7 +7,7 @@
 #' @param var Numeric vector to partition
 #' @param n Number of colors / breaks
 #' @param style Breaks algorithm from "classIntervals" in the "classInt" package. These include: "fixed", "sd", "equal", "pretty", "quantile", "kmeans", "hclust", "bclust", "fisher", or "jenks"
-#' @param palette Palette from RColorBrewer
+#' @param pal Palette from RColorBrewer
 #' @param na_color Hex code to assign NA values
 #' @param na_omit Logical; should the function remove NAs. 'na_color' will be irrelevant if this is TRUE.
 #' @param alph Opacity level (0=transparent, 1=opaque)
@@ -47,10 +47,11 @@ color_assign <- function(var,
     c <- data.frame(col = brewer.pal(n, "Blues"), brk = 1:n, stringsAsFactors=FALSE)
     c_na <- data.frame(col = na_color, brk = NA, stringsAsFactors=FALSE)
     c <- rbind(c, c_na)
-    c
+
     # create breaks
     cuts <- classIntervals(var, n, style = "jenks")
-    b <- data.frame(brk = cut(var, breaks = cuts$brks, labels = FALSE), stringsAsFactors=FALSE)
+    brks <- cut(var, breaks = cuts$brks, labels = FALSE)
+    b <- data.frame(var=var, brk = brks, stringsAsFactors=FALSE)
 
     # assign and return
     out <- join(c, b, by="brk", type="right")

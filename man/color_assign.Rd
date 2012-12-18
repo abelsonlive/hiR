@@ -15,7 +15,7 @@
   "equal", "pretty", "quantile", "kmeans", "hclust",
   "bclust", "fisher", or "jenks"}
 
-  \item{palette}{Palette from RColorBrewer}
+  \item{pal}{Palette from RColorBrewer}
 
   \item{na_color}{Hex code to assign NA values}
 
@@ -36,7 +36,7 @@
 \examples{
 var <- rnorm(100)
 library("hiR")
-var_cols <- assign_colors(var)
+var_cols <- color_assign(var)
 par(family="HersheySans")
 plot(var_cols$var,
      pch=20,

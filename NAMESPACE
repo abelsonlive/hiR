@@ -1,4 +1,3 @@
-export(assign_colors)
 export(calendar_heat_map)
 export(classify_sentiment)
 export(color_assign)
