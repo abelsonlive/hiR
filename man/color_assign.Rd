@@ -1,8 +1,8 @@
-\name{assign_colors}
-\alias{assign_colors}
+\name{color_assign}
+\alias{color_assign}
 \title{Partition a numeric vector into a set of breaks and assign colors}
 \usage{
-  assign_colors(var, n = 9, style = "jenks", pal = "Blues",
+  color_assign(var, n = 9, style = "jenks", pal = "Blues",
     na_color = "#787878", na_omit = FALSE, alph = 1)
 }
 \arguments{

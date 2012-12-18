@@ -1,6 +1,7 @@
 export(assign_colors)
 export(calendar_heat_map)
 export(classify_sentiment)
+export(color_assign)
 export(gen_var_names)
 export(geocode)
 export(get_klout_scores)

@@ -21,7 +21,7 @@
 #' @examples
 #' var <- rnorm(100)
 #' library("hiR")
-#' var_cols <- assign_colors(var)
+#' var_cols <- color_assign(var)
 #' par(family="HersheySans")
 #' plot(var_cols$var,
 #'      pch=20,
@@ -30,13 +30,13 @@
 #'      ylab="value",
 #'      main="assign_colors example")
 
-assign_colors <- function(var,
+color_assign <- function(var,
                          n = 9,
                          style = "jenks",
                          pal = "Blues", # Palettes from RColorBrewer
-                         na_color ='#787878', # Color to give NA's
+                         na_color = '#787878', # Color to give NA's
                          na_omit = FALSE, # Logical, argument above will be irrelevant if TRUE
-                         alph=1 # Opacity (0-1)
+                         alph = 1 # Opacity (0-1)
                          ) {
     # na_omit?
     if (na_omit) {
@@ -44,14 +44,16 @@ assign_colors <- function(var,
     }
 
     # create colors
-    c <- data.frame(col = brewer.pal(n, pal), brk = 1:n)
-    c_na <- data.frame(col = na_color, brk = NA)
+    c <- data.frame(col = brewer.pal(n, "Blues"), brk = 1:n, stringsAsFactors=FALSE)
+    c_na <- data.frame(col = na_color, brk = NA, stringsAsFactors=FALSE)
     c <- rbind(c, c_na)
-
+    c
     # create breaks
     cuts <- classIntervals(var, n, style = "jenks")
-    b <- data.frame(brk = cut(var, breaks = cuts$brks, labels = FALSE))
+    b <- data.frame(brk = cut(var, breaks = cuts$brks, labels = FALSE), stringsAsFactors=FALSE)
 
     # assign and return
-    return(join(c, b, by="brk", type="right"))
+    out <- join(c, b, by="brk", type="right")
+    return(data.frame(out, stringsAsFactors=FALSE))
 }
+
