@@ -2,9 +2,8 @@
 \alias{assign_colors}
 \title{Partition a numeric vector into a set of breaks and assign colors}
 \usage{
-  assign_colors(var, n = 9, style = "jenks",
-    palette = "Reds", na_color = "#787878",
-    na_omit = FALSE, alph = 1)
+  assign_colors(var, n = 9, style = "jenks", pal = "Blues",
+    na_color = "#787878", na_omit = FALSE, alph = 1)
 }
 \arguments{
   \item{var}{Numeric vector to partition}

@@ -33,30 +33,11 @@
 assign_colors <- function(var,
                          n = 9,
                          style = "jenks",
-                         palette = "Reds", # Palettes from RColorBrewer
+                         pal = "Blues", # Palettes from RColorBrewer
                          na_color ='#787878', # Color to give NA's
                          na_omit = FALSE, # Logical, argument above will be irrelevant if TRUE
                          alph=1 # Opacity (0-1)
                          ) {
-
-    # load required libraries
-    if(!require("classInt")){
-        install.packages("classInt")
-        library("classInt")
-    }
-    if(!require("scales")){
-        install.packages("scales")
-        library("scales")
-    }
-    if(!require("RColorBrewer")){
-        install.packages("RColorBrewer")
-        library("RColorBrewer")
-    }
-    if(!require("plyr")){
-        install.packages("plyr")
-        library("plyr")
-    }
-
     # na_omit?
     if (na_omit) {
       var <- var[!is.na(var)]
@@ -67,11 +48,11 @@ assign_colors <- function(var,
 
     # create breaks
     print("creating breaks...")
-    cuts <- classIntervals(var, n, style=style)
-    breaks <- cut(var, breaks=cuts$brks, labels=FALSE)
+    cuts <- classIntervals(var, n, style = style)
+    breaks <- cut(var, breaks = cuts$brks, labels = FALSE)
 
     # create function
-    assignColor <- function(x) {
+    assignColor <- function(x, cols = cols) {
                      if(is.na(x)) {
                         assignment <- alpha(na_color, alph)
                      } else {
