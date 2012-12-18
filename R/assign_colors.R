@@ -44,7 +44,7 @@ assign_colors <- function(var,
     }
 
     # create colors
-    cols <- brewer.pal(n, palette)
+    cols <- brewer.pal(n, pal)
 
     # create breaks
     print("creating breaks...")
