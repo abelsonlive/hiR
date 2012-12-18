@@ -44,7 +44,7 @@ color_assign <- function(var,
     }
 
     # create colors
-    c <- data.frame(col = brewer.pal(n, "Blues"), brk = 1:n, stringsAsFactors=FALSE)
+    c <- data.frame(col = brewer.pal(n, pal), brk = 1:n, stringsAsFactors=FALSE)
     c_na <- data.frame(col = na_color, brk = NA, stringsAsFactors=FALSE)
     c <- rbind(c, c_na)
 
