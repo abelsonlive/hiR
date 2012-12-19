@@ -34,9 +34,10 @@ color_assign <- function(var,
                          n = 9,
                          style = "jenks",
                          pal = "Blues", # Palettes from RColorBrewer
+                         rev = FALSE,  # Logical; Should the function reverse ramp order palette
                          na_color = '#787878', # Color to give NA's
                          na_omit = FALSE, # Logical, argument above will be irrelevant if TRUE
-                         alph = 1 # Opacity (0-1)
+                         alph = 0.5 # Opacity (0-1)
                          ) {
     # na_omit?
     if (na_omit) {
@@ -44,9 +45,16 @@ color_assign <- function(var,
     }
 
     # create colors
-    c <- data.frame(col = brewer.pal(n, pal), brk = 1:n, stringsAsFactors=FALSE)
+    if (rev) {
+        order <- n:1
+    } else {
+        order <- 1:n
+    }
+
+    c <- data.frame(col = brewer.pal(n, pal), brk = order, stringsAsFactors=FALSE)
     c_na <- data.frame(col = na_color, brk = NA, stringsAsFactors=FALSE)
     c <- rbind(c, c_na)
+    c$col <- alpha(c$col, alph)
 
     # create breaks
     cuts <- classIntervals(var, n, style = "jenks")
