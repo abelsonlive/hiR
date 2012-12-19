@@ -66,7 +66,7 @@ color_assign <- function(var,
     c$col <- alpha(c$col, alph) # add alpha levels to color
 
     # cut variable into breaks
-    cuts <- classIntervals(p$humor, 9, style = "jenks")
+    cuts <- classIntervals(var, n, style = style)
 
     # check if breaks are unique.
     brks <- cuts$brks
@@ -77,8 +77,8 @@ color_assign <- function(var,
     }
 
     # assign variables into breaks
-    breaks <- cut(p$humor, breaks = brks, labels = FALSE)
-    b <- data.frame(var=var, brk = breaks, stringsAsFactors=FALSE)
+    breaks <- cut(var, breaks = brks, labels = FALSE)
+    b <- data.frame(var = var, brk = breaks, stringsAsFactors=FALSE)
 
     # assign colors to breaks
     out <- join(c, b, by="brk", type="right")
