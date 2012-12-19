@@ -43,26 +43,17 @@ regress_text <- function(text, # charachter vector of text blobs
                          stop_words = TRUE, # logical; should the function stem words?
                          stem_words = TRUE, # logical; should the function stem words?
                          stop_words_to_add = NULL, # a character vector of additional stopwords
-                         sparse = 0.99, # level of sparsity at which a given feature will not be considered
+                         sparse = 0.995, # level of sparsity at which a given feature will not be considered
                          family = 'gaussian', # family argument for glmnet
                          alpha = 0.1, # alpha=1 is the lasso penalty, and alpha=0 the ridge penalty.
                          n_splits = 10, # number of times to resample data
                          size = 0.8 # how much of the data should be used during resampling for model fitting?
                          ) {
 # LIBRARIES
-    if(!require("glmnet")) {
-        install.packages("glmnet")
-        library("glmnet")
-    }
-    if(!require("tm")) {
-        install.packages("tm")
-        library("tm")
-    }
     if(!require("Rstem")) {
         install.packages("Rstem", repos="http://www.omegahat.org/R", type="source")
         library("Rstem")
     }
-
 
   print("cleaning text / removing stopwords...")
   corpus <- Corpus(VectorSource(text))

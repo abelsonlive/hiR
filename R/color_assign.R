@@ -1,16 +1,17 @@
-#' Partition a numeric vector into a set of breaks and assign colors
+[#' Partition a numeric vector into a set of breaks and assign colors
 #'
 #' This function takes an input numeric vector and partitions
 #' it into a set number of breaks.
 #' It then assigns a color to each break via RColorBrewer
 #'
-#' @param var Numeric vector to partition
+#' @param x Numeric vector to partition. Alternatively, if "style" argument is a clustering algorithm, you can supply a matrix.
 #' @param n Number of colors / breaks
 #' @param style Breaks algorithm from "classIntervals" in the "classInt" package. These include: "fixed", "sd", "equal", "pretty", "quantile", "kmeans", "hclust", "bclust", "fisher", or "jenks"
 #' @param pal Palette from RColorBrewer. Alternatively a character vector of hexcodes representing your palette.  If your variable is continuous, these colors should be ramped upwards or downwards.
-#' @param na_color Hex code to assign NA values
+#' @param na_color Hexcode to assign NA values
 #' @param na_omit Logical; should the function remove NAs. 'na_color' will be irrelevant if this is TRUE.
 #' @param alph Opacity level (0=transparent, 1=opaque)
+#' @param include_var Logical; should the function return the input variable(s)
 #'
 #' @return
 #' A data.frame with the variable,
@@ -19,7 +20,7 @@
 #' @export
 #'
 #' @examples
-#' var <- rnorm(100)
+#' var <- rnorm(1000)
 #' library("hiR")
 #' var_cols <- color_assign(var)
 #' par(family="HersheySans")
@@ -33,11 +34,12 @@
 color_assign <- function(var,
                          n = 9,
                          style = "jenks",
-                         pal = "Blues", # Palettes from RColorBrewer.
-                         rev = FALSE,  # Logical; Should the function reverse ramp order palette
-                         na_color = '#787878', # Color to give NA's
-                         na_omit = FALSE, # Logical, argument above will be irrelevant if TRUE
-                         alph = 0.5 # Opacity (0-1)
+                         pal = "Spectral",
+                         rev = FALSE,
+                         na_color = '#787878',
+                         na_omit = FALSE,
+                         alph = 1,
+                         include_var = TRUE
                          ) {
     # na_omit?
     if (na_omit) {
@@ -52,7 +54,7 @@ color_assign <- function(var,
         n <- length(pal)
     }
 
-    # create order
+    # create order of colors
     if (rev) {
         order <- n:1
     } else {
@@ -83,7 +85,11 @@ color_assign <- function(var,
     # assign colors to breaks
     out <- join(c, b, by="brk", type="right")
 
+    # remove input var if requested
+    if (!include_var) {
+        out$var <- NULL
+    }
+
     # return
     return(data.frame(out, stringsAsFactors=FALSE))
 }
-

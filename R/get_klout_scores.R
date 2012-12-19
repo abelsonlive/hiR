@@ -19,24 +19,8 @@ get_klout_scores <- function(twitter_handles,
                              api_key,
                              na_omit=TRUE
                              ) {
-    #libraries
-    if(!require("rjson")){
-        install.packages("rjson")
-        library("rjson")
-    }
-    if(!require("RCurl")){
-        install.packages("RCurl")
-        library("RCurl")
-    }
-    if(!require("plyr")){
-        install.packages("plyr")
-        library("plyr")
-    }
-    if(!require("stringr")){
-        install.packages("stringr")
-        library("stringr")
-    }
-    # clean twitter hadles
+
+    # clean twitter handles
     twitter_handles <- gsub("@", "", twitter_handles)
 
     # step one: get klout ids

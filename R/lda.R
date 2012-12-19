@@ -65,22 +65,6 @@ lda <- function(
     ) {
 
 # LIBRARIES
-    if(!require("tm")) {
-        install.packages("tm")
-        library("tm")
-    }
-    if(!require("lda")) {
-        install.packages("lda")
-        library("lda")
-    }
-    if(!require("plyr")) {
-        install.packages("plyr")
-        library("plyr")
-    }
-    if(!require("stringr")) {
-        install.packages("stringr")
-        library("stringr")
-    }
     if(!require("Rstem")) {
         install.packages("Rstem", repos="http://www.omegahat.org/R", type="source")
         library("Rstem")

@@ -95,8 +95,8 @@ geocode <- function(uid_location, service="yahoo", yahoo_appid='') {
         if(geo_json$status == "OK"){
             lat <- geo_json$results[[1]]$geometry$location$lat
             lng <- geo_json$results[[1]]$geometry$location$lng
-            type <- geo_json$results[[1]]$geometry$location_type
-            info <- data.frame(uid, location, lat, lng, type, stringsAsFactors=F)
+            quality <- geo_json$results[[1]]$geometry$location_type
+            info <- data.frame(uid, location, lat, lng, quality, stringsAsFactors=F)
           }
           else{
             if(geo_json$status == "OVER_QUERY_LIMIT") {

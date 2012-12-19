@@ -8,16 +8,12 @@
 #'
 #' @examples
 #' documents <- c("running runner run", "jumping jump jumped")
-#' library(tm)
+#' library("tm")
 #' corpus <- Corpus(VectorSource(documents))
 #' library("hiR")
 #' as.character(tm_map(corpus, word_stemmer))
 
 word_stemmer <- function(document) {
-    if(!require("stringr")){
-        install.packages("stringr")
-        library("stringr")
-    }
     if(!require("Rstem")){
         install.packages("Rstem", repos="http://www.omegahat.org/R", type="source")
         library("Rstem")

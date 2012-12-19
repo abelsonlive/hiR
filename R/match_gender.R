@@ -18,15 +18,6 @@
 match_gender <- function(names,
                          full=FALSE
                          ) {
-    # libraries
-    if(!require("plyr")) {
-        install.packages("plyr")
-        library("plyr")
-    }
-    if(!require("stringr")) {
-        install.packages("stringr")
-        library("stringr")
-    }
     # read in names database
     names_db <- read.csv("http://dl.dropbox.com/u/6535582/HI_Files/hiR/gender_match/names.csv", stringsAsFactors=F) # CHANGE THIS HACKY MESS
 
@@ -53,6 +44,7 @@ match_gender <- function(names,
          }
     return(data.frame(name, gender, stringsAsFactors=F))
     }
+
     print(paste("matching names..."))
     output <- ldply(names, match, .progress="text")
     return(output)
