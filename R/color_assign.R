@@ -7,7 +7,7 @@
 #' @param var Numeric vector to partition
 #' @param n Number of colors / breaks
 #' @param style Breaks algorithm from "classIntervals" in the "classInt" package. These include: "fixed", "sd", "equal", "pretty", "quantile", "kmeans", "hclust", "bclust", "fisher", or "jenks"
-#' @param pal Palette from RColorBrewer
+#' @param pal Palette from RColorBrewer. Alternatively a character vector of hexcodes representing your palette.  If your variable is continuous, these colors should be ramped upwards or downwards.
 #' @param na_color Hex code to assign NA values
 #' @param na_omit Logical; should the function remove NAs. 'na_color' will be irrelevant if this is TRUE.
 #' @param alph Opacity level (0=transparent, 1=opaque)
@@ -33,7 +33,7 @@
 color_assign <- function(var,
                          n = 9,
                          style = "jenks",
-                         pal = "Blues", # Palettes from RColorBrewer
+                         pal = "Blues", # Palettes from RColorBrewer.
                          rev = FALSE,  # Logical; Should the function reverse ramp order palette
                          na_color = '#787878', # Color to give NA's
                          na_omit = FALSE, # Logical, argument above will be irrelevant if TRUE
@@ -45,24 +45,45 @@ color_assign <- function(var,
     }
 
     # create colors
+    if (length(pal)==1){
+       cols <- brewer.pal(n, pal)
+    } else if (length(pal) > 1){
+        cols <- pal
+        n <- length(pal)
+    }
+
+    # create order
     if (rev) {
         order <- n:1
     } else {
         order <- 1:n
     }
 
-    c <- data.frame(col = brewer.pal(n, pal), brk = order, stringsAsFactors=FALSE)
+    # create color data.frame
+    c <- data.frame(col = cols, brk = order, stringsAsFactors=FALSE)
     c_na <- data.frame(col = na_color, brk = NA, stringsAsFactors=FALSE)
     c <- rbind(c, c_na)
-    c$col <- alpha(c$col, alph)
+    c$col <- alpha(c$col, alph) # add alpha levels to color
 
-    # create breaks
-    cuts <- classIntervals(var, n, style = "jenks")
-    brks <- cut(var, breaks = cuts$brks, labels = FALSE)
-    b <- data.frame(var=var, brk = brks, stringsAsFactors=FALSE)
+    # cut variable into breaks
+    cuts <- classIntervals(p$humor, 9, style = "jenks")
 
-    # assign and return
+    # check if breaks are unique.
+    brks <- cuts$brks
+    test <- duplicated(brks)
+    if (any(test)) {
+        # if they aren't add a small amount to the duplicated version
+        brks[test] <- brks[test] + max(brks)/10000000
+    }
+
+    # assign variables into breaks
+    breaks <- cut(p$humor, breaks = brks, labels = FALSE)
+    b <- data.frame(var=var, brk = breaks, stringsAsFactors=FALSE)
+
+    # assign colors to breaks
     out <- join(c, b, by="brk", type="right")
+
+    # return
     return(data.frame(out, stringsAsFactors=FALSE))
 }
 
