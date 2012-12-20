@@ -1,4 +1,4 @@
-[#' Partition a numeric vector into a set of breaks and assign colors
+#' Partition a numeric vector into a set of breaks and assign colors
 #'
 #' This function takes an input numeric vector and partitions
 #' it into a set number of breaks.
@@ -74,8 +74,9 @@ color_assign <- function(var,
     brks <- cuts$brks
     test <- duplicated(brks)
     if (any(test)) {
+
         # if they aren't add a small amount to the duplicated version
-        brks[test] <- brks[test] + max(brks)/10000000
+        brks[test] <- brks[test] + max(brks)/1E5
     }
 
     # assign variables into breaks

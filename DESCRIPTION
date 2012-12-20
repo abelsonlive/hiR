@@ -29,7 +29,6 @@ Suggests:
     sentiment
 LazyLoad: yes
 Collate:
-    'calendar_heat_map.R'
     'classify_sentiment.R'
     'gen_var_names.R'
     'geocode.R'
@@ -40,3 +39,4 @@ Collate:
     'regress_text.R'
     'word_stemmer.R'
     'color_assign.R'
+    'calendar.R'

@@ -1,8 +1,8 @@
-\name{calendar_heat_map}
-\alias{calendar_heat_map}
+\name{calendar}
+\alias{calendar}
 \title{Create a calendar heat map with a set number of breaks}
 \usage{
-  calendar_heat_map(dates, values, breaks, ncolors = 9,
+  calendar(dates, values, breaks, ncolors = 9,
     pal = "Spectral", varname = "Values",
     date_form = "\%Y-\%m-\%d")
 }
@@ -29,10 +29,10 @@
 }
 \examples{
 date <- seq(from=as.Date("2010-01-01"),
-            to=as.Date("2012-12-31"),
+             to=as.Date("2012-12-31"),
             by='day')
 value <- rnorm(length(date), mean = 10, sd=1)
 library("hiR")
-calendar_heat_map(dates=date, values=value)
+calendar(dates=date, values=value)
 }
 

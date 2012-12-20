@@ -4,7 +4,7 @@
 \usage{
   regress_text(text, y, stop_words = TRUE,
     stem_words = TRUE, stop_words_to_add = NULL,
-    sparse = 0.99, family = "gaussian", alpha = 0.1,
+    sparse = 0.995, family = "gaussian", alpha = 0.1,
     n_splits = 10, size = 0.8)
 }
 \arguments{

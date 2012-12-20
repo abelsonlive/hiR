@@ -1,4 +1,4 @@
-export(calendar_heat_map)
+export(calendar)
 export(classify_sentiment)
 export(color_assign)
 export(gen_var_names)

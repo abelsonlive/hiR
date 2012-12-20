@@ -12,7 +12,7 @@
 }
 \examples{
 documents <- c("running runner run", "jumping jump jumped")
-library(tm)
+library("tm")
 corpus <- Corpus(VectorSource(documents))
 library("hiR")
 as.character(tm_map(corpus, word_stemmer))
