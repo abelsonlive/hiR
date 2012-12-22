@@ -56,6 +56,7 @@ regress_text <- function(text, # charachter vector of text blobs
     }
 
   print("cleaning text / removing stopwords...")
+  text <- iconv(text, "UTF-8")
   corpus <- Corpus(VectorSource(text))
   corpus <- tm_map(corpus, tolower)
   if(stop_words) {

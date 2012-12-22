@@ -22,7 +22,7 @@ match_gender <- function(names,
     names_db <- read.csv("http://dl.dropbox.com/u/6535582/HI_Files/hiR/gender_match/names.csv", stringsAsFactors=F) # CHANGE THIS HACKY MESS
 
     # clean up input names
-    names <- str_trim(as.character(names))
+    names <- tolower(str_trim(as.character(names)))
 
     # if requested, extract first names
     if(full){

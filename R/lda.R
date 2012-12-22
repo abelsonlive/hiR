@@ -77,6 +77,8 @@ lda <- function(
     if(is.null(ids)) {
         ids <- 1:length(text)
     }
+# ensure text is all UTF-8
+    text <- iconv(text, "UTF-8")
 
 # META VARIABLES - RAW TEXT
     # total number of characters/ features / unique features
