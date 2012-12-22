@@ -42,10 +42,10 @@ match_gender <- function(names,
          } else {
             gender = NA
          }
-    return(data.frame(name, gender, stringsAsFactors=F))
+    return(as.character(gender))
     }
 
     print(paste("matching names..."))
-    output <- ldply(names, match, .progress="text")
+    output <- laply(names, match, .progress="text")
     return(output)
 }
