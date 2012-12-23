@@ -102,17 +102,23 @@ geocode <- function(uid_location, service="yahoo", yahoo_appid='') {
             if(geo_json$status == "OVER_QUERY_LIMIT") {
                 stop(paste("Hit rate limit at:", uid, location))
             }
-        }
+            if(geo_json$status == "ZERO_RESULTS") {
+                cat("no results for", uid, location, "\n")
+                info <- data.frame(uid, location, lat=NA, lng=NA, quality=NA, stringsAsFactors=F)
+            }
+
+          }
     }
     if(service=="yahoo") {
-        status <- geo_json$ResultSet$Error
-        if(status==0){
+        status <- geo_json$ResultSet$ErrorMessage
+        if(status=="No error"){
             lat <- as.numeric(geo_json$ResultSet$Results[[1]]$latitude)
             lng <- as.numeric(geo_json$ResultSet$Results[[1]]$longitude)
             quality <- as.numeric(geo_json$ResultSet$Results[[1]]$quality)
             info <- data.frame(uid, location, lat, lng, quality, stringsAsFactors=F)
-        } else {
-            stop(paste("Hit rate limit at:", uid, location))
+        } else if(status=="No result") {
+            cat("no results for", uid, location, "\n")
+            info <- data.frame(uid, location, lat=NA, lng=NA, quality=NA, stringsAsFactors=F)
         }
     }
     Sys.sleep(0.1)
