@@ -61,7 +61,7 @@
 #'      col="darkred")
 #' title("Major Cities on the Eastern Seaboard")
 
-geocode <- function(uid_location, service="yahoo", yahoo_appid='') {
+geocode <- function(uid_location, service="google", yahoo_appid='') {
 
     if(service == "yahoo") {
         base_url <- paste0("http://where.yahooapis.com/geocode?appid=", yahoo_appid,"&flags=j" ,"&q=")
