@@ -97,14 +97,14 @@ geocode <- function(uid_location, service="google", yahoo_appid='') {
             info <- data.frame(uid, location, lat, lng, quality, stringsAsFactors=F)
           }
           else {
-            if(geo_json$status == "OVER_QUERY_LIMIT") {
-                stop(paste("Hit rate limit at:", uid, location))
-            }
             if(geo_json$status == "ZERO_RESULTS") {
                 cat("no results for", uid, location, "\n")
                 info <- data.frame(uid, location, lat=NA, lng=NA, quality=NA, stringsAsFactors=F)
             }
-
+            if(geo_json$status == "OVER_QUERY_LIMIT") {
+                return(info)
+                stop(paste("Hit rate limit at:", uid, location))
+            }
           }
     }
     if(service=="yahoo") {
