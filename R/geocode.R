@@ -119,6 +119,7 @@ geocode <- function(uid_location, service="google", yahoo_appid='') {
             info <- data.frame(uid, location, lat=NA, lng=NA, quality=NA, stringsAsFactors=F)
         }
     }
-    Sys.sleep(0.1)
+    sleep <- sample(seq(1,3, 0.01), 1)
+    Sys.sleep(sleep)
     return(info)
 }
