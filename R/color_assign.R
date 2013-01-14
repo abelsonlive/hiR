@@ -4,10 +4,11 @@
 #' it into a set number of breaks.
 #' It then assigns a color to each break via RColorBrewer
 #'
-#' @param x Numeric vector to partition. Alternatively, if "style" argument is a clustering algorithm, you can supply a matrix.
+#' @param var Numeric vector to partition. Alternatively, if "style" argument is a clustering algorithm, you can supply a matrix.
 #' @param n Number of colors / breaks
 #' @param style Breaks algorithm from "classIntervals" in the "classInt" package. These include: "fixed", "sd", "equal", "pretty", "quantile", "kmeans", "hclust", "bclust", "fisher", or "jenks"
 #' @param pal Palette from RColorBrewer. Alternatively a character vector of hexcodes representing your palette.  If your variable is continuous, these colors should be ramped upwards or downwards.
+#' @param rev Logical; should the function reverse the ordering of the palette
 #' @param na_color Hexcode to assign NA values
 #' @param na_omit Logical; should the function remove NAs. 'na_color' will be irrelevant if this is TRUE.
 #' @param alph Opacity level (0=transparent, 1=opaque)

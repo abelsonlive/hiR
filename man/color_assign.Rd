@@ -7,7 +7,7 @@
     na_omit = FALSE, alph = 1, include_var = TRUE)
 }
 \arguments{
-  \item{x}{Numeric vector to partition. Alternatively, if
+  \item{var}{Numeric vector to partition. Alternatively, if
   "style" argument is a clustering algorithm, you can
   supply a matrix.}
 
@@ -22,6 +22,9 @@
   character vector of hexcodes representing your palette.
   If your variable is continuous, these colors should be
   ramped upwards or downwards.}
+
+  \item{rev}{Logical; should the function reverse the
+  ordering of the palette}
 
   \item{na_color}{Hexcode to assign NA values}
 

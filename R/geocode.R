@@ -63,13 +63,13 @@
 
 geocode <- function(uid_location, service="yahoo", yahoo_appid='') {
 
-    if(service=="yahoo") {
+    if(service == "yahoo") {
         base_url <- paste0("http://where.yahooapis.com/geocode?appid=", yahoo_appid,"&flags=j" ,"&q=")
     }
-    if (service=="google") {
+    if (service == "google") {
         base_url <- "http://maps.googleapis.com/maps/api/geocode/json?sensor=false&address="
     }
-    if(service!="yahoo" & service!="google"){
+    if(service != "yahoo" & service != "google"){
         stop("only google and yahoo geocoding apis are currently supported")
     }
 
@@ -79,15 +79,13 @@ geocode <- function(uid_location, service="yahoo", yahoo_appid='') {
     geo_url <- paste0(base_url, URLencode(location))
 
     # geocode
-    cat(paste("Geocoding:", location))
-    cat("\n")
+    cat(paste("Geocoding:", location), "\n")
     geo_text <- try(getURL(geo_url))
     if(class(geo_text)=="try-error"){
         geo_text = try(readLines(geo_url))
     }
     if (class(geo_text)=="try-error"){
-        cat(paste("having trouble reading this query:", uid))
-        cat("\n")
+        cat(paste("having trouble reading this query:", uid), "\n")
     }
     #
     geo_json <- fromJSON(geo_text)
@@ -98,7 +96,7 @@ geocode <- function(uid_location, service="yahoo", yahoo_appid='') {
             quality <- geo_json$results[[1]]$geometry$location_type
             info <- data.frame(uid, location, lat, lng, quality, stringsAsFactors=F)
           }
-          else{
+          else {
             if(geo_json$status == "OVER_QUERY_LIMIT") {
                 stop(paste("Hit rate limit at:", uid, location))
             }
