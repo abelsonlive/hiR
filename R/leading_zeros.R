@@ -26,10 +26,12 @@ leading_zeros <- function(ids = NULL, n_digits = NULL) {
 
     # add zeros function
     add_zeros <- function(dd) {
-        n <- as.numeric(unique(dd$nchar))
-        the_zeros <- rep("0", n_digits-n)
-        the_zeros <- paste(the_zeros, collapse="")
-        dd$id <- paste0(the_zeros, dd$id)
+        if(!is.na(dd$id)) {
+            n <- as.numeric(unique(dd$nchar))
+            the_zeros <- rep("0", n_digits-n)
+            the_zeros <- paste(the_zeros, collapse="")
+            dd$id <- paste0(the_zeros, dd$id)
+        }
         return(dd)
     }
     # run
