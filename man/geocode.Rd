@@ -2,7 +2,7 @@
 \alias{geocode}
 \title{Geocode strings of text via the Google API}
 \usage{
-  geocode(uid_location, service = "yahoo",
+  geocode(uid_location, service = "google",
     yahoo_appid = "")
 }
 \arguments{

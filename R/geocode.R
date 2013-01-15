@@ -87,8 +87,10 @@ geocode <- function(uid_location, service="google", yahoo_appid='') {
     if (class(geo_text)=="try-error"){
         cat(paste("having trouble reading this query:", uid), "\n")
     }
-    #
+
     geo_json <- fromJSON(geo_text)
+
+    # google geocoder
     if (service=="google") {
         if(geo_json$status == "OK"){
             lat <- geo_json$results[[1]]$geometry$location$lat
@@ -107,6 +109,8 @@ geocode <- function(uid_location, service="google", yahoo_appid='') {
             }
           }
     }
+
+    # yahoo geocoder
     if(service=="yahoo") {
         status <- geo_json$ResultSet$ErrorMessage
         if(status=="No error"){

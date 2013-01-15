@@ -2,7 +2,7 @@
 #'
 #' This functions makes data stacks
 #'
-#' @param csvs a directory full of csv files or a list data.frames
+#' @param csvs a directory full of csv files or a list of data.frames
 #'
 #' @return
 #' A data.frame with inconsistent columns filled in

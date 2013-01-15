@@ -5,7 +5,7 @@
   csv_stack(csvs = NULL)
 }
 \arguments{
-  \item{csvs}{a directory full of csv files or a list
+  \item{csvs}{a directory full of csv files or a list of
   data.frames}
 }
 \value{
