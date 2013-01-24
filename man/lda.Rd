@@ -6,10 +6,11 @@
     remove_stop_words = TRUE, stop_words_to_add = NULL,
     remove_numbers = TRUE, remove_punctuation = TRUE,
     remove_non_ascii = TRUE, stem_words = FALSE,
-    char_range = c(2, 50), min_word_count = 5,
+    char_range = c(3, 50), min_word_count = 5,
     n_topics = 10, n_topic_words = 20, n_iter = 1000,
     burnin = 100, alpha = 0.1, eta = 0.1,
-    n_assignments = 2)
+    n_assignments = 2, doc_stats = TRUE,
+    package = "topicmodels")
 }
 \arguments{
   \item{text}{A character vector of text documents}

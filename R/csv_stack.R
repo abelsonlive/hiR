@@ -15,7 +15,8 @@ csv_stack <- function(csvs = NULL) {
         files <- list.files(csvs)
         files <- files[grep("\\.csv", files)]
         # read in csvs to a list
-        csvs <- lapply(files, function(x) {read.csv(x, stringsAsFactors=F)})
+        cat("reading in csvs...")
+        csvs <- laply(files, function(x) {read.csv(x, stringsAsFactors=F)}, .progress="text")
     }
 
     # order list by number of columns in each csv
@@ -23,6 +24,7 @@ csv_stack <- function(csvs = NULL) {
     col_order <- unlist(lapply(csvs, ncol))
     csvs <- csvs[order(col_order)]
 
+    cat("combining csvs...")
     # reduce data
     rbind.fill(csvs)
 }

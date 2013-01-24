@@ -55,7 +55,7 @@ regress_text <- function(text, # charachter vector of text blobs
         library("Rstem")
     }
 
-  print("cleaning text / removing stopwords...")
+  cat("cleaning text / removing stopwords...", "\n")
   text <- iconv(text, "UTF-8")
   corpus <- Corpus(VectorSource(text))
   corpus <- tm_map(corpus, tolower)
@@ -67,7 +67,7 @@ regress_text <- function(text, # charachter vector of text blobs
   corpus <- tm_map(corpus, stripWhitespace)
 
   if (stem_words) {
-    print("stemming words...")
+    cat("stemming words...", "\n")
     # generate stemming function
     wordStemmer <- function(x) {
 
@@ -94,7 +94,7 @@ regress_text <- function(text, # charachter vector of text blobs
   }
 
   # create and clean document term matrix
-  print("prepping data...")
+  cat("prepping data...", "\n")
   corpus <- Corpus(VectorSource(corpus))
   dtm <- DocumentTermMatrix(corpus)
   dtm <- removeSparseTerms(dtm, sparse)
@@ -114,14 +114,14 @@ regress_text <- function(text, # charachter vector of text blobs
   x <- dtm.to.Matrix(dtm)
   y <- as.vector(y)
 
-  print("fitting initial model...")
+  cat("fitting initial model...", "\n")
   regularized.fit <- glmnet(x, y, family = family, alpha = alpha)
 
   lambdas <- regularized.fit$lambda
 
   # Calculate number of splits based on time required to perform original model fit.
   # Or based on data set size?
-  print("resampling...")
+  cat("resampling...", "\n")
   performance <- data.frame()
 
   for (i in 1:n_splits) {
@@ -138,10 +138,10 @@ regress_text <- function(text, # charachter vector of text blobs
       rmse <- sqrt(mean((predicted.y - test.y) ^ 2))
       performance <- rbind(performance, data.frame(Split = i, Lambda = lambda, RMSE = rmse))
     }
-    print(paste("iteration", i, "of", n_splits, "..."))
+    cat("iteration", i, "of", n_splits, "...", "\n")
   }
 
-  print("preparing output...")
+  cat("preparing output...", "\n")
   mean.rmse <- ddply(performance,
                      'Lambda',
                      function (df) {

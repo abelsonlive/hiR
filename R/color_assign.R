@@ -30,7 +30,7 @@
 #'      col=var_cols$col,
 #'      xlab="index",
 #'      ylab="value",
-#'      main="assign_colors example")
+#'      main="color_assign example")
 
 color_assign <- function(var,
                          n = 9,

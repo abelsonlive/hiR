@@ -48,7 +48,7 @@ lda <- function(
     remove_punctuation = TRUE,
     remove_non_ascii = TRUE,
     stem_words = FALSE,
-    char_range = c(2,50),
+    char_range = c(3,50),
     min_word_count = 5,
 
     # MODEL PARAMETERS #
@@ -60,10 +60,13 @@ lda <- function(
     eta = 0.1,
 
     # OUTPUT #
-    n_assignments = 2
+    n_assignments = 2,
+    doc_stats  = TRUE,
+
+    # PACKAGE #
+    package = "topicmodels"
 
     ) {
-
 # LIBRARIES
     if(!require("Rstem")) {
         install.packages("Rstem", repos="http://www.omegahat.org/R", type="source")
@@ -76,36 +79,41 @@ lda <- function(
 # gen id var if NULL
     if(is.null(ids)) {
         ids <- 1:length(text)
+    } else {
+        ids <- as.character(ids)
     }
 # ensure text is all UTF-8
     text <- iconv(text, "UTF-8")
 
 # META VARIABLES - RAW TEXT
-    # total number of characters/ features / unique features
-    docStats <- function(x) {
-        # length of document
-        len <- nchar(x)
+    if(doc_stats) {
+        # total number of characters/ features / unique features
+        docStats <- function(x) {
+            # length of document
+            len <- nchar(x)
 
-        # split words
-        words <- str_trim(unlist(strsplit(x, " ")))
-        words <- words[words!=""]
+            # split words
+            words <- str_trim(unlist(strsplit(x, " ")))
+            words <- words[words!=""]
 
-        # calculate average word length
-        nchars <- laply(words, nchar)
-        len_word <- mean(nchars)
+            # calculate average word length
+            nchars <- laply(words, nchar)
+            len_word <- mean(nchars)
 
-        # count features
-        n_feat <- length(words)
-        n_unq_feat <- length(unique(words))
+            # count features
+            n_feat <- length(words)
+            n_unq_feat <- length(unique(words))
 
-        # return stats
-        return(data.frame(len, len_word, n_feat, n_unq_feat))
+            # return stats
+            return(data.frame(len, len_word, n_feat, n_unq_feat))
+        }
+        cat("computing raw document stats...", "\n")
+        features_raw <- ldply(text, docStats)
+        names(features_raw) <- paste0(names(features_raw),"_raw")
     }
-    features_raw <- ldply(text, docStats)
-    names(features_raw) <- paste0(names(features_raw),"_raw")
-
 # CLEAN THE INPUT TEXT #
     # convert text to corpus
+    cat("cleaning text...", "\n")
     corpus <- Corpus(VectorSource(text))
 
     # standardize case
@@ -116,17 +124,18 @@ lda <- function(
     # remove stopwords / numbers / punctuation / whitespace
     if (remove_stop_words) {
         corpus <- tm_map(corpus, tolower)
-        print("removing stop words...")
+        cat("removing stop words...", "\n")
         stop_words <- c(stopwords('english'), stop_words_to_add)
         corpus <- tm_map(corpus, removeWords, stop_words)
     }
 
     # remove numbers / punctuation / strip whitespace
-    print("cleaning text...")
     if (remove_numbers) {
+        cat("removing numbers...", "\n")
         corpus <- tm_map(corpus, removeNumbers)
     }
     if (remove_punctuation) {
+        cat("removing punctuation...", "\n")
         removePunct <- function(x) {
             gsub("[[:punct:]]", " ", x)
         }
@@ -135,11 +144,13 @@ lda <- function(
 
     # remove non-ASCII characters
     if (remove_non_ascii) {
+        cat("removing non ascii characters...", "\n")
         removeNonASCII <- function(x) {
             iconv(x, "latin1", "ASCII", sub="")
         }
         corpus <- tm_map(corpus, removeNonASCII)
     }
+    cat("stripping whitespace...", "\n")
     corpus <- tm_map(corpus, stripWhitespace)
 
     # filter out "words" that have more than 255
@@ -151,12 +162,13 @@ lda <- function(
         output <- paste(clean_words, collapse=" ")
         return(output)
     }
+    cat("filtering out words longer than 255 characters...", "\n")
     corpus <- tm_map(corpus, charFilter)
     corpus <- tm_map(corpus, stripWhitespace)
 
     # stem words
     if(stem_words) {
-        print("stemming words...")
+        cat("stemming words...", "\n")
         # generate stemming function
         wordStemmer <- function(x) {
             words <- str_trim(unlist(strsplit(x, " ")))
@@ -180,6 +192,7 @@ lda <- function(
         output <- str_trim(paste(clean_words, collapse=" "))
         return(output)
     }
+    cat("filtering words outside of desired char_range...", "\n")
     corpus <- tm_map(corpus, charFilter2)
 
     # strip white space again for good measure
@@ -190,12 +203,16 @@ lda <- function(
 
 # META VARIABLES - CLEAN TEXT
     # total number of characters / features / unique features
-    features_clean <- ldply(text, docStats)
-    names(features_clean) <- paste0(names(features_clean),"_clean")
+    if(doc_stats) {
+        cat("computing clean document stats...", "\n")
+        features_clean <- ldply(text, docStats, .progress="text")
+        names(features_clean) <- paste0(names(features_clean),"_clean")
+    }
 
 # CREATE / FILTER LEXICON
     # lexicalize text
-    print("lexicalizing text...")
+    cat("lexicalizing text...", "\n")
+
     corpus <- lexicalize(text, sep=" ", count=1)
 
     # only keep words that appear at least twice.
@@ -208,25 +225,21 @@ lda <- function(
 # FIT TOPICS
     # gibbs sampling
     # K is the number of topics
-    print("fitting topics...")
+    cat("fitting topics...", "\n")
     K <- n_topics
     n_iter <- n_iter + burnin
     result <- lda.collapsed.gibbs.sampler(documents, K, keep, n_iter, alpha, eta)
 
 # PREPARE OUTPUT
-    print("preparing output...")
+    cat("preparing output...", "\n")
 
     # top words by document
     predictions <- t(predictive.distribution(result$document_sums, result$topics, 0.1, 0.1))
-    document_words <- data.frame(top.topic.words(predictions,
-                                                 n_topic_words,
-                                                 by.score = TRUE))
-    names(document_words) <- ids
+    document_words <- data.frame(top.topic.words(predictions, n_topic_words, by.score = TRUE), stringsAsFactors=F)
+    names(document_words) <- as.character(ids)
 
     # top words by topic
-    topic_words <- data.frame(top.topic.words(result$topics,
-                                              num.words = n_topic_words,
-                                              by.score = TRUE))
+    topic_words <- data.frame(top.topic.words(result$topics, num.words = n_topic_words, by.score = TRUE), stringsAsFactors=F)
     names(topic_words) <- paste0("topic_", 1:K)
 
     # topics by documents stats
@@ -241,6 +254,7 @@ lda <- function(
     topics[,topic_ass_vars] <- 0
 
     # assign primary and secondary topic(s), get distribution topics by document
+    cat("assigning topics to documents", "\n")
     for(doc in 1:n_docs) {
         assignments <- as.numeric(names(sort(raw[doc,1:K], decreasing=TRUE)))
         topics[doc, topic_ass_vars] <- assignments[1:n_assignments]
@@ -249,16 +263,20 @@ lda <- function(
     }
 
     # add meta variables
-    document_stats <- data.frame(topics, features_raw, features_clean)
+    if(doc_stats){
+        document_stats <- data.frame(topics, features_raw, features_clean)
+    } else {
+        document_stats <- topics
+    }
 
 # CALCULATE JOB LENGTH
     end <- Sys.time()
     job_length <- round(difftime(end, start, units="mins"), digits=2)
-    print(paste("lda finished at:", end))
-    print(paste("job took:", job_length, "minutes"))
+    cat("lda finished at:", end, "\n")
+    cat("job took:", job_length, "minutes")
 
 # RETURN OUTPUT
     return(list(topic_words = topic_words,
-                document_stats = document_stats,
-                document_words = document_words))
+                document_stats = document_stats))#,
+                #document_words = document_words))
 }

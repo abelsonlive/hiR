@@ -23,8 +23,7 @@ pretty_coefs <- function(m,
 						title="",
 						pval = 0.05,
 						null=0
-						)
-{
+						){
 
 	################ generate data ###############################
 
