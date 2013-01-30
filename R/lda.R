@@ -61,10 +61,7 @@ lda <- function(
 
     # OUTPUT #
     n_assignments = 2,
-    doc_stats  = TRUE,
-
-    # PACKAGE #
-    package = "topicmodels"
+    doc_stats  = TRUE
 
     ) {
 # LIBRARIES
@@ -233,10 +230,10 @@ lda <- function(
 # PREPARE OUTPUT
     cat("preparing output...", "\n")
 
-    # top words by document
-    predictions <- t(predictive.distribution(result$document_sums, result$topics, 0.1, 0.1))
-    document_words <- data.frame(top.topic.words(predictions, n_topic_words, by.score = TRUE), stringsAsFactors=F)
-    names(document_words) <- as.character(ids)
+    # # top words by document
+    # predictions <- t(predictive.distribution(result$document_sums, result$topics, 0.1, 0.1))
+    # document_words <- data.frame(top.topic.words(predictions, n_topic_words, by.score = TRUE), stringsAsFactors=F)
+    # names(document_words) <- as.character(ids)
 
     # top words by topic
     topic_words <- data.frame(top.topic.words(result$topics, num.words = n_topic_words, by.score = TRUE), stringsAsFactors=F)
