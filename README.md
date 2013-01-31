@@ -2,6 +2,10 @@
 _[Harmony Institute's](http://www.harmony-institute.org/) toolkit for [R](http://www.cran.r-project.org/)_
 ####Install:####
 
+	if(!require("Rstem")){
+        	install.packages("Rstem", repos="http://www.omegahat.org/R", type="source")
+        	library("Rstem")
+    	}
 	library("devtools")
 	install_github("hiR", "hinstitute")
 	library("hiR")
