@@ -2,7 +2,7 @@
 \alias{csv_stack}
 \title{Stack up a directory of csvs or list of data.frames}
 \usage{
-  csv_stack(csvs = NULL)
+  csv_stack(csvs = NULL, pattern = NULL)
 }
 \arguments{
   \item{csvs}{a directory full of csv files or a list of

@@ -9,8 +9,7 @@
     char_range = c(3, 50), min_word_count = 5,
     n_topics = 10, n_topic_words = 20, n_iter = 1000,
     burnin = 100, alpha = 0.1, eta = 0.1,
-    n_assignments = 2, doc_stats = TRUE,
-    package = "topicmodels")
+    n_assignments = 2, doc_stats = TRUE)
 }
 \arguments{
   \item{text}{A character vector of text documents}
