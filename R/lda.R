@@ -274,6 +274,5 @@ lda <- function(
 
 # RETURN OUTPUT
     return(list(topic_words = topic_words,
-                document_stats = document_stats))#,
-                #document_words = document_words))
+                document_stats = document_stats))
 }
