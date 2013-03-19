@@ -91,7 +91,7 @@ pretty_coefs <- function(m,
 	 	col.main="grey30", # specify the color of the title
 	 	col.sub="grey30",# specify the color of the subtitle
 	 	mai=c(0.5,0,0.5,0),
-		cex=0.5,
+		cex=1,
 		cex.main=1.5,
 		bg="white")
 
